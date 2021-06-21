@@ -1,0 +1,15 @@
+.splash-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .splash-box {
+    margin-top: 110px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 25px;
+    background-color: rgba(221, 28, 28, 0.623);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */

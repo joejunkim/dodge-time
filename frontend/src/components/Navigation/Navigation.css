@@ -1,0 +1,17 @@
+.navbar__container {
+    position: sticky;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 10px 10px 10px
+}
+
+.navbar__logo{
+    display: flex;
+    flex-direction: flex-start;
+}
+
+.navbar__right{
+    display: flex;
+    flex-direction: flex-end;
+    /* align-items: flex-end; */
+}
