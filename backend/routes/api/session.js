@@ -6,6 +6,18 @@ const { User } = require('../../db/models');
 
 const router = express.Router();
 
+// Restore session user
+router.get( '/', restoreUser, (req, res) => {
+    const { user } = req;
+    if (user) {
+        return res.json({
+            user: user.toSafeObject()
+        });
+    } else {
+        return res.json({});
+    }
+});
+
 // Log in
 router.post('/', asyncHandler(async (req, res, next) => {
     const { credential, password } = req.body;
@@ -23,9 +35,14 @@ router.post('/', asyncHandler(async (req, res, next) => {
     await setTokenCookie(res, user);
 
     return res.json({
-            user,
-        });
-    }),
+        user,
+    });
+}));
+
+router.delete('/',(_req, res) => {
+    res.clearCookie('token');
+        return res.json({ message: 'success' });
+    }
 );
 
   module.exports = router;
