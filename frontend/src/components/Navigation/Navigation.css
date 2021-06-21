@@ -1,17 +1,17 @@
 .navbar__container {
     position: sticky;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    /* align-items: center; */
     padding: 10px 10px 10px 10px
 }
 
-.navbar__logo{
+/* .navbar__logo {
     display: flex;
-    flex-direction: flex-start;
-}
+    justify-content: flex-start;
+} */
 
-.navbar__right{
+/* .navbar__right {
     display: flex;
-    flex-direction: flex-end;
-    /* align-items: flex-end; */
-}
+    /* justify-content:
+} */

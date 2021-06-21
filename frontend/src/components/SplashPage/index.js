@@ -1,6 +1,6 @@
-import './Home.css';
+import './SplashPage.css';
 
-function Home() {
+function SplashPage() {
     return (
         <div>
             <h1>DodgeThis</h1>
@@ -9,4 +9,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default SplashPage;
