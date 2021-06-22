@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     venueId: DataTypes.INTEGER
   }, {});
   Event.associate = function(models) {
-    const columnMapping1 = {
+    const columnMapping = {
       through: 'RSVP',
       foreignKey: 'eventId',
       otherKey: 'userId'

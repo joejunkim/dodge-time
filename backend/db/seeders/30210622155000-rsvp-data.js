@@ -5,11 +5,15 @@ module.exports = {
     return queryInterface.bulkInsert('RSVPs', [
       {
         userId: 1,
-        eventId: 2
+        eventId: 2,
+        createdAt: new Date(Date.UTC(2016, 1, 1)),
+        updatedAt: new Date(Date.UTC(2017, 1, 1)),
       },
       {
         userId: 2,
-        eventId: 1
+        eventId: 1,
+        createdAt: new Date(Date.UTC(2016, 1, 1)),
+        updatedAt: new Date(Date.UTC(2017, 1, 1)),
       },
     ], {});
   },
