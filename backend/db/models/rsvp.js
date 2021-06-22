@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   RSVP.associate = function(models) {
     RSVP.belongsTo(models.User, {foreignKey: 'userId'});
-    RSVP.belongsTo(models.Event, {foreignKey: 'eventId'});
   };
   return RSVP;
 };

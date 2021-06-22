@@ -47,9 +47,21 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   User.associate = function(models) {
-    User.hasMany(models.Group, {foreignKey: 'userId'});
-    User.hasMany(models.Event, {foreignKey: 'userId'});
-    User.hasMany(models.RSVP, {foreignKey: 'userId'});
+    const columnMapping1 = {
+      through: 'UserGroup',
+      foreignKey: 'userId',
+      otherKey: 'groupId'
+    }
+
+    const columnMapping2 = {
+      through: 'RSVP',
+      foreignKey: 'userId',
+      otherKey: 'eventId'
+    }
+
+    User.belongsToMany(models.Group, columnMapping1);
+    User.belongsToMany(models.Event, columnMapping2);
+    User.belongsTo(models.Event, {foreignKey: 'hostId'})
   };
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
     const { id, username, email } = this; // context will be the User instance

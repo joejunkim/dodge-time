@@ -6,7 +6,7 @@ module.exports = {
       {
         name: "PNW Tournament",
         type: "Tournament",
-        date: 06-22-2021,
+        date: new Date(Date.UTC(2021, 06, 2)),
         capacity: 100,
         description: "Annual Pacific Northwest Tournament. All skill levels allowed!",
         hostId: 1,
@@ -16,7 +16,7 @@ module.exports = {
       {
         name: "Saturday Training Drills",
         type: "Training",
-        date: 06-26-2021,
+        date: new Date(Date.UTC(2021, 06, 6)),
         capacity: 15,
         description: "Come practice throwing drills",
         hostId: 2,

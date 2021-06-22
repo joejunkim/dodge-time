@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     zipCode: DataTypes.INTEGER
   }, {});
   Venue.associate = function(models) {
-    Venue.hasMany(models.Event, {foreignKey: 'venueId'})
+    Venue.hasMany(models.Event, {foreignKey: 'eventId'})
   };
   return Venue;
 };
