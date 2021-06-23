@@ -8,8 +8,7 @@ import { NavLink } from "react-router-dom";
 const GroupIdPage = () => {
     const dispatch = useDispatch();
     const { groupId } = useParams();
-    const groups = useSelector((state) => (state.groups))
-    const group = groups[groupId]
+    const group = useSelector((state) => (state.groups[groupId]))
 
     useEffect(() => {
         dispatch(getGroups());
@@ -20,7 +19,8 @@ const GroupIdPage = () => {
             <h1>{group?.name}</h1>
             <h3>{group?.type}</h3>
             <h3>{group?.description}</h3>
-            <NavLink to='/groups/delete'>Delete Group</NavLink>
+            <NavLink to={`/groups/${groupId}/edit`}>Edit Group</NavLink>
+            <NavLink to={`/groups/${groupId}/delete`}>Delete Group</NavLink>
         </>
     )
 }
