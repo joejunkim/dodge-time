@@ -8,7 +8,7 @@ function SplashPage() {
         <>
             <div className='splash-container'>
                 <div className='splash-body'>
-                    <h1>Welcome to DodgeTime!</h1>
+                    <h1>Welcome to DodgeThis!</h1>
                     <h3>Join groups to meet fellow players, search for local and national events, and most importantly, dodge balls!</h3>
                 </div>
                 <div className='splash-right'>
