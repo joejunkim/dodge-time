@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 export const LOAD_GROUPS = "groups/LOAD_GROUPS"
 export const ADD_GROUP = "groups/ADD_GROUP"
+export const DELETE_GROUP = "groups/DELETE_GROUP"
 
 const loadGroups = (groups) => ({
     type: LOAD_GROUPS,
@@ -10,6 +11,11 @@ const loadGroups = (groups) => ({
 
 const addOneGroup = (group) => ({
     type: ADD_GROUP,
+    group
+})
+
+const deleteGroup = (group) => ({
+    type: DELETE_GROUP,
     group
 })
 
@@ -37,6 +43,10 @@ export const addGroup = (newGroupData) => async dispatch => {
     }
 }
 
+// export const deleteGroup = (groupId) {
+//     const group = await
+// }
+
 const initialState = {};
 
 const groupsReducer = (state = initialState, action) => {
@@ -57,6 +67,12 @@ const groupsReducer = (state = initialState, action) => {
             };
             console.log('---------->', newState)
             return { ...newState }
+        case DELETE_GROUP: {
+            const newState = { ...state };
+            delete newState[action.groupId];
+                return newState;
+            }
+
         default:
             return state;
     }

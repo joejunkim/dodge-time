@@ -61,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
 
     User.belongsToMany(models.Group, columnMapping1);
     User.belongsToMany(models.Event, columnMapping2);
-    User.belongsTo(models.Event, {foreignKey: 'hostId'})
+    User.belongsTo(models.Event, {foreignKey: 'userId'})
   };
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
     const { id, username, email } = this; // context will be the User instance
