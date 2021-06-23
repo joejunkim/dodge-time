@@ -34,11 +34,11 @@ function App() {
           <Route path="/groups" exact>
             <SearchPage />
           </Route>
-          <Route path="/groups/:groupId">
-            <GroupIdPage />
-          </Route>
           <Route path="/groups/create">
             <CreateGroupPage />
+          </Route>
+          <Route path="/groups/:groupId">
+            <GroupIdPage />
           </Route>
         </Switch>
       )}
