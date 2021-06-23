@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import SplashPage from "./components/SplashPage"
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
-import GroupsPage from "./components/GroupsPage"
+import SearchPage from "./components/SearchPage"
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -30,7 +30,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/find">
-            <GroupsPage />
+            <SearchPage />
           </Route>
         </Switch>
       )}
