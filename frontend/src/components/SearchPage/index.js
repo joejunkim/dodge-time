@@ -1,16 +1,24 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { findGroups } from "../../store/groups";
-import { useDispatch } from "react-redux";
+import { getGroups } from "../../store/groups";
 
-function SearchPage() {
+const SearchPage = () => {
+    const dispatch = useDispatch();
+    const groups = useSelector((state) => Object.values(state.groups))
+
+    console.log("----------->", groups)
+
+    useEffect(() => {
+        dispatch(getGroups());
+    }, [dispatch])
+
     return (
         <div>
             <h1>Groups</h1>
-            <ul>
-
-            </ul>
+            <div>
+                These are my groups: {groups[1]?.name}
+            </div>
         </div>
     );
 }

@@ -12,21 +12,21 @@ function SplashPage() {
                     <h3>Join groups to meet fellow players, search for local and national events, and most importantly, dodge balls!</h3>
                 </div>
                 <div className='splash-right'>
-                    <h2>🔴 Dodge</h2>
-                    <h2>🟢 Duck</h2>
-                    <h2>🔵 Dip</h2>
-                    <h2>🟡 Dive</h2>
-                    <h2>🔴 Dodge</h2>
+                    <h2>🔴Dodge</h2>
+                    <h2>🟢Duck</h2>
+                    <h2>🔵Dip</h2>
+                    <h2>🟡Dive</h2>
+                    <h2>🔴Dodge</h2>
                 </div>
                 {/* <div className='splash-right'>
-                    <h2>🔴</h2>
-                    <h2>🟢</h2>
-                    <h2>🔵</h2>
-                    <h2>🟡</h2>
-                    <h2>🔴</h2>
+                    <h2>Dodge</h2>
+                    <h2>Duck</h2>
+                    <h2>Dip</h2>
+                    <h2>Dive</h2>
+                    <h2>Dodge</h2>
                 </div> */}
             </div>
-            <NavLink to='/find'>Search</NavLink>
+            <NavLink to='/groups'>Search</NavLink>
         </>
     );
 }
