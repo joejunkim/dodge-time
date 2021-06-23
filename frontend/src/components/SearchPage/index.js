@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react';
 import { getGroups } from "../../store/groups";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import './SearchPage.css'
 
@@ -18,17 +18,18 @@ const SearchPage = () => {
             <h1 className='search-body'>Groups</h1>
             <div className='search-container'>
                 {groups.map((group) => (
-                    
                     <div className='search-card'>
-                        <div className='search-card__name'>
-                            {group.name}
-                        </div>
-                        <div className='search-card__type'>
-                            {group.type}
-                        </div>
-                        <div className='search-card__description'>
-                            {group.description}
-                        </div>
+                        <Link to={`/groups/${group.id}`}>
+                            <div className='search-card__name'>
+                                {group.name}
+                            </div>
+                            <div className='search-card__type'>
+                                {group.type}
+                            </div>
+                            <div className='search-card__description'>
+                                {group.description}
+                            </div>
+                        </Link>
                     </div>
                 ))}
                 <NavLink to='/groups/create'>Start a New Group</NavLink>
