@@ -20,7 +20,14 @@ function EditGroupForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // await dispatch(updateGroup(groupId))
+
+        const payload = {
+            name,
+            type,
+            description
+        }
+
+        await dispatch(updateGroup(payload, groupId))
         history.push(`/groups/${groupId}`)
     };
 
@@ -53,6 +60,9 @@ function EditGroupForm() {
                 />
             </label>
             <button type="submit">Confirm Changes</button>
+            <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
         </form>
       );
 }

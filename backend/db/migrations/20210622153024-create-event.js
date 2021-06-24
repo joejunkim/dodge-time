@@ -4,6 +4,7 @@ module.exports = {
     return queryInterface.createTable('Events', {
       id: {
         allowNull: false,
+        onDelete: 'CASCADE',
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
@@ -31,16 +32,19 @@ module.exports = {
       },
       hostId: {
         allowNull: false,
+        onDelete: 'CASCADE',
         type: Sequelize.INTEGER,
         references: { model: 'Users' }
       },
       groupId: {
         allowNull: false,
+        onDelete: 'CASCADE',
         type: Sequelize.INTEGER,
         references: { model: 'Groups' }
       },
       venueId: {
         allowNull: false,
+        onDelete: 'CASCADE',
         type: Sequelize.INTEGER,
         references: { model: 'Venues' }
       },
