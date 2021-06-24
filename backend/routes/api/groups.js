@@ -21,8 +21,9 @@ router.post('/', asyncHandler(async (req, res) => {
 
 router.put(`/:groupId`, asyncHandler(async (req, res) => {
     const groupId = req.params.groupId;
-    const group = await db.Group.update(groupId)
-    res.json(group);
+    await db.Group.update(req.body,
+        { where: { id: groupId } })
+    res.json(groupId);
 }))
 
 router.delete(`/:groupId`, asyncHandler(async (req, res) => {

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from 'react-router-dom'
 import { useParams } from "react-router";
 
 import { updateGroup } from '../../store/groups'
 
 function EditGroupForm() {
     const dispatch = useDispatch();
-    const history = useHistory();
     const { groupId } = useParams();
     const groups = useSelector((state) => Object.values(state.groups))
     const group = useSelector((state) => (state.groups[groupId]))
@@ -28,7 +26,7 @@ function EditGroupForm() {
         }
 
         await dispatch(updateGroup(payload, groupId))
-        history.push(`/groups/${groupId}`)
+        window.location.reload(false);
     };
 
     useEffect(() => {
@@ -56,6 +54,24 @@ function EditGroupForm() {
                     type='text'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    required
+                />
+            </label>
+            <label>
+                Type
+                <input
+                    type='text'
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    required
+                />
+            </label>
+            <label>
+                Description
+                <textarea
+                    type='text'
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     required
                 />
             </label>
