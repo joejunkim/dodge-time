@@ -66,8 +66,7 @@ export const deleteGroup = (groupId) => async dispatch => {
     });
 
     if (response.ok) {
-        const group = await response.json();
-        dispatch(deleteOneGroup(group));
+        dispatch(deleteOneGroup(groupId));
     }
 }
 
@@ -91,15 +90,8 @@ const groupsReducer = (state = initialState, action) => {
             };
             return { ...newState }
         case DELETE_GROUP:
-            return {
-                ...state,
-                [action.group.id]: {
-                    ...state[action.group.id],
-                    groups: state[action.group.id].filter(
-                        (group) => group.id !== action.group.groupId
-                    ),
-                },
-            }
+            delete state[action.group]
+            return { ...state, }
         default:
             return state;
     }
