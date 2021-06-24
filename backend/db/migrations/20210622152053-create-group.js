@@ -4,6 +4,7 @@ module.exports = {
     return queryInterface.createTable('Groups', {
       id: {
         allowNull: false,
+        onDelete: 'CASCADE',
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER

@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: 'userId'
     }
 
-    Group.belongsToMany(models.User, columnMapping);
-    Group.hasMany(models.Event, {foreignKey: 'groupId'});
+    Group.belongsToMany(models.User, columnMapping, { onDelete: 'CASCADE' } );
+    Group.hasMany(models.Event, {foreignKey: 'groupId', onDelete: 'CASCADE'});
   };
   return Group;
 };

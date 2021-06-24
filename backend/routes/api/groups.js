@@ -20,8 +20,9 @@ router.post('/', asyncHandler(async (req, res) => {
 }));
 
 router.delete(`/:groupId`, asyncHandler(async (req, res) => {
-    const groups = await db.Group.findAll();
-    res.json(groups);
+    console.log('------------->')
+    const groupId = await db.Group.destroy(req.params.groupId);
+    res.json(groupId);
 }));
 
 module.exports = router;
