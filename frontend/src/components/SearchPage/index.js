@@ -57,8 +57,7 @@ const SearchPage = () => {
                             </div>
                         ))}
                         <NavLink to='/events/create'>Create a New Event</NavLink>
-                    </>
-                )}
+                    </>)}
             </div>
         </div>
     );

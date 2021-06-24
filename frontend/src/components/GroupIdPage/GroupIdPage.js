@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getGroups } from "../../store/groups";
 import { getEvents } from "../../store/events";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Calendar from 'react-calendar'
 import EditGroupModal from "../EditGroupFormModal";
 import DeleteGroupModal from '../DeleteGroupFormModal'
@@ -30,28 +30,37 @@ const GroupIdPage = () => {
                 <h1>{group?.name}</h1>
                 <h3>Type | {group?.type}</h3>
                 <h3>Description | {group?.description}</h3>
+                <div>
+                    <EditGroupModal />
+                    <DeleteGroupModal />
+                </div>
             </div>
-            <Link onClick={(e) => setEventDisplay('list')}>List</Link>
-            <Link onClick={(e) => setEventDisplay('calendar')}>Calendar</Link>
-            { eventDisplay === 'calendar'
-                ? (<>
-                    <div className='group-calendar'>
-                        <h3>Events Calendar</h3>
-                        <Calendar/>
+            <div className='group-events'>
+                <div className='groups-events__header'>
+                    <h3>Upcoming Events</h3>
+                    <div>
+                        <Link onClick={(e) => setEventDisplay('list')}>List</Link>
+                        |
+                        <Link onClick={(e) => setEventDisplay('calendar')}>Calendar</Link>
+                        <p></p>
+                        <NavLink to='/events/create'>Create a New Event</NavLink>
                     </div>
-            </>)
-            : (<>
-                <h3>Events</h3>
-                {events.map((event) => (
-                    <Link to={`/events/${event.id}`}>
-                        {event.name}
-                    </Link>
-                ))}
-                </>
-            )}
-            <div className='group-footer'>
-                <EditGroupModal />
-                <DeleteGroupModal />
+                </div>
+                { eventDisplay === 'calendar'
+                    ? (<>
+                        <div className='group-events__calendar'>
+                            <Calendar/>
+                        </div>
+                </>)
+                : (<>
+                        <div className='group-events__list'>
+                            {events.map((event) => (
+                                <Link to={`/events/${event.id}`}>
+                                    {event.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </>)}
             </div>
         </div>
     )
