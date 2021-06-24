@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 export const LOAD_GROUPS = "groups/LOAD_GROUPS"
 export const ADD_GROUP = "groups/ADD_GROUP"
+export const UPDATE_GROUP = "groups/UPDATE_GROUP"
 export const DELETE_GROUP = "groups/DELETE_GROUP"
 
 const loadGroups = (groups) => ({
@@ -11,6 +12,11 @@ const loadGroups = (groups) => ({
 
 const addOneGroup = (group) => ({
     type: ADD_GROUP,
+    group
+})
+
+const updateOneGroup = (group) => ({
+    type: UPDATE_GROUP,
     group
 })
 
@@ -43,12 +49,21 @@ export const addGroup = (newGroupData) => async dispatch => {
     }
 }
 
+export const updateGroup = (groupId) => async dispatch => {
+    const response = await csrfFetch(`/api/groups/${groupId}`, {
+        method: 'PUT'
+    })
+
+    if (response.ok) {
+        const group = await response.json();
+        dispatch(updateOneGroup(group));
+    }
+}
+
 export const deleteGroup = (groupId) => async dispatch => {
     const response = await csrfFetch(`/api/groups/${groupId}`, {
         method: 'DELETE',
     });
-
-    console.log('-------------->')
 
     if (response.ok) {
         const group = await response.json();

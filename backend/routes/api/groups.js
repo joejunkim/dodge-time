@@ -19,6 +19,11 @@ router.post('/', asyncHandler(async (req, res) => {
     res.json(id)
 }));
 
+router.put(`/:groupId`, asyncHandler(async (req, res) => {
+    const groupId = req.params.groupId;
+    // await db.Group.
+}))
+
 router.delete(`/:groupId`, asyncHandler(async (req, res) => {
     const groupId = req.params.groupId;
     await db.Group.destroy({ where: { id: groupId }});
