@@ -44,7 +44,6 @@ export const addGroup = (newGroupData) => async dispatch => {
 }
 
 export const deleteGroup = (groupId) => async dispatch => {
-    console.log('------------->')
     const response = await csrfFetch(`/api/groups/${groupId}`, {
         method: 'DELETE',
     });
@@ -52,7 +51,6 @@ export const deleteGroup = (groupId) => async dispatch => {
     if (response.ok) {
         const group = await response.json();
         dispatch(deleteOneGroup(group));
-        // return;
     }
 }
 
@@ -76,7 +74,6 @@ const groupsReducer = (state = initialState, action) => {
             };
             return { ...newState }
         case DELETE_GROUP:
-            console.log('---------->', newState)
             return {
                 ...state,
                 [action.groupId]: {
