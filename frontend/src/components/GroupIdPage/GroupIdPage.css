@@ -4,16 +4,6 @@
     margin: 25px
 }
 
-.group__left-div {
-    display: flex;
-}
-
-.group__right-div {
-    /* display: flex;
-    flex-direction: column;
-    width: 400px; */
-}
-
 .group-info {
     display: flex;
     flex-direction: column;
@@ -30,22 +20,6 @@
 
 .group-footer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.splash-body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 25px
-}
-
-.splash-right {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: flex-end; */
-    /* align-items: flex-start; */
-    padding-right: 80px;
-    margin: 80px, 80px;
+    /* flex-direction: ; */
+    /* align-items: center; */
 }

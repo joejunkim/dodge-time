@@ -5,6 +5,7 @@ import SplashPage from "./components/SplashPage"
 import SearchPage from "./components/SearchPage"
 import CreateGroupPage from "./components/CreateGroupPage";
 import GroupIdPage from "./components/GroupIdPage/GroupIdPage";
+import EventIdPage from "./components/EventIdPage/EventIdPage"
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -23,7 +24,7 @@ function App() {
           <Route path="/" exact>
             <SplashPage />
           </Route>
-          <Route path="/groups" exact>
+          <Route path="/find" exact>
             <SearchPage />
           </Route>
           <Route path="/groups/create">
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/groups/:groupId">
             <GroupIdPage />
+          </Route>
+          <Route path="/events/:eventId">
+            <EventIdPage />
           </Route>
         </Switch>
       )}

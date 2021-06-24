@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getGroups } from "../../store/groups";
+import { getEvents } from "../../store/events";
 import { Link, NavLink } from "react-router-dom";
 
 import './SearchPage.css'
@@ -8,31 +9,58 @@ import './SearchPage.css'
 const SearchPage = () => {
     const dispatch = useDispatch();
     const groups = useSelector((state) => Object.values(state.groups))
+    const events = useSelector((state) => Object.values(state.events))
+    const [search, setSearch] = useState('groups')
 
     useEffect(() => {
         dispatch(getGroups());
+        dispatch(getEvents())
     }, [dispatch])
 
     return (
         <div>
-            <h1 className='search-body'>Groups</h1>
+            <Link onClick={(e) => setSearch('groups')}>Groups
+            </Link>
+            <Link onClick={(e) => setSearch('events')}>Events
+            </Link>
             <div className='search-container'>
-                {groups.map((group) => (
-                    <div className='search-card'>
-                        <Link to={`/groups/${group.id}`}>
-                            <div className='search-card__name'>
-                                {group.name}
+                { search === 'groups'
+                    ? (<>
+                        <h1>Groups</h1>
+                        {groups.map((group) => (
+                            <div className='search-card'>
+                                <Link to={`/groups/${group.id}`}>
+                                    <div className='search-card__name'>
+                                        {group.name}
+                                        </div>
+                                    <div className='search-card__type'>
+                                        {group.type}
+                                    </div>
+                                </Link>
                             </div>
-                            <div className='search-card__type'>
-                                {group.type}
+                        ))}
+                        <NavLink to='/groups/create'>Start a New Group</NavLink>
+                    </>
+                ) : (<>
+                        <h1>Events</h1>
+                        {events.map((event) => (
+                            <div className='search-card'>
+                                <Link to={`/events/${event.id}`}>
+                                    <div className='search-card__name'>
+                                        {event.name}
+                                    </div>
+                                    <div className='search-card__type'>
+                                        {event.type}
+                                    </div>
+                                    <div className='search-card__type'>
+                                        {event.date}
+                                    </div>
+                                </Link>
                             </div>
-                            <div className='search-card__description'>
-                                {group.description}
-                            </div>
-                        </Link>
-                    </div>
-                ))}
-                <NavLink to='/groups/create'>Start a New Group</NavLink>
+                        ))}
+                        <NavLink to='/events/create'>Create a New Event</NavLink>
+                    </>
+                )}
             </div>
         </div>
     );

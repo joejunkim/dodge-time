@@ -26,7 +26,7 @@ function SplashPage() {
                     <h2>Dodge</h2>
                 </div> */}
             </div>
-            <NavLink to='/groups'>Search</NavLink>
+            <NavLink to='/find'>Search</NavLink>
         </>
     );
 }
