@@ -25,7 +25,7 @@ function Navigation({ isLoaded }){
 
   return (
     <ul className='navbar__container'>
-      <NavLink exact to="/">DodgeThis</NavLink>
+      <NavLink exact to="/">🤾 DODGETHIS</NavLink>
       {isLoaded && sessionLinks}
     </ul>
   );

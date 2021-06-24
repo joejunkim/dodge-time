@@ -28,20 +28,23 @@ const GroupIdPage = () => {
         <div className='group-container'>
             <div className='group-info'>
                 <h1>{group?.name}</h1>
-                <h3>Type | {group?.type}</h3>
-                <h3>Description | {group?.description}</h3>
+                <h3>Type</h3>
+                {group?.type}
+                <h3>Description</h3>
+                {group?.description}
+                <p />
                 <div>
                     <EditGroupModal />
                     <DeleteGroupModal />
                 </div>
             </div>
             <div className='group-events'>
-                <div className='groups-events__header'>
+                <div className='group-events__header'>
                     <h3>Upcoming Events</h3>
                     <div>
-                        <Link onClick={(e) => setEventDisplay('list')}>List</Link>
+                        <button onClick={(e) => setEventDisplay('list')}>List</button>
                         |
-                        <Link onClick={(e) => setEventDisplay('calendar')}>Calendar</Link>
+                        <button onClick={(e) => setEventDisplay('calendar')}>Calendar</button>
                         <p></p>
                         <NavLink to='/events/create'>Create a New Event</NavLink>
                     </div>
@@ -56,7 +59,9 @@ const GroupIdPage = () => {
                         <div className='group-events__list'>
                             {events.map((event) => (
                                 <Link to={`/events/${event.id}`}>
-                                    {event.name}
+                                    <div className='search-card__name'>{event.name}</div>
+                                    <div className='search-card__type'>{event.type}</div>
+                                    <div className='search-card__type'>{event.date}</div>
                                 </Link>
                             ))}
                         </div>

@@ -4,3 +4,15 @@ body {
     color: white;
     background-color: black;
 }
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    background-color: black;
+    border-radius: 25px;
+}

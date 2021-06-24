@@ -22,18 +22,17 @@ const EventIdPage = () => {
         <div className='event-container'>
             <div className='event-info'>
                 <h1>{event?.name}</h1>
-                <h3>Type | {event?.type}</h3>
-                <h3>Date | {event?.date}</h3>
-                <h3>Description | {event?.description}</h3>
-                <h3>Hosted By | 
-                    <Link to={`/groups/${group?.id}`}>
-                        {group?.name}
-                    </Link>
-                </h3>
-            </div>
-            <div className='event-calendar'>
-                <h3>Events</h3>
-                {/* <Calendar/> */}
+                <h3>Type</h3>
+                {event?.type}
+                <h3>Date</h3>
+                {event?.date}
+                <h3>Description</h3>
+                {event?.description}
+                <h3>Hosted By</h3>
+                <Link to={`/groups/${group?.id}`}>
+                    {group?.name}
+                </Link>
+
             </div>
             <div className='event-footer'>
                 {/* <EditEventModal /> */}

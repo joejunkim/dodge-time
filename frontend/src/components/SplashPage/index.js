@@ -10,23 +10,18 @@ function SplashPage() {
                 <div className='splash-body'>
                     <h1>Welcome to DodgeThis!</h1>
                     <h3>Join groups to meet fellow players, search for local and national events, and most importantly, dodge balls!</h3>
+                    <p />
+                    <p />
+                    <NavLink to='/find'>Search For A Group or Event</NavLink>
                 </div>
                 <div className='splash-right'>
-                    <h2>🔴Dodge</h2>
-                    <h2>🟢Duck</h2>
-                    <h2>🔵Dip</h2>
-                    <h2>🟡Dive</h2>
-                    <h2>🔴Dodge</h2>
+                    <h1>🔴Dodge</h1>
+                    <h1>🟢Duck</h1>
+                    <h1>🔵Dip</h1>
+                    <h1>🟡Dive</h1>
+                    <h1>🔴Dodge</h1>
                 </div>
-                {/* <div className='splash-right'>
-                    <h2>Dodge</h2>
-                    <h2>Duck</h2>
-                    <h2>Dip</h2>
-                    <h2>Dive</h2>
-                    <h2>Dodge</h2>
-                </div> */}
             </div>
-            <NavLink to='/find'>Search</NavLink>
         </>
     );
 }

@@ -19,8 +19,8 @@ const SearchPage = () => {
 
     return (
         <div>
-            <Link onClick={(e) => setSearch('groups')}>Groups</Link>
-            <Link onClick={(e) => setSearch('events')}>Events</Link>
+            <button onClick={(e) => setSearch('groups')}>Groups</button>|
+            <button onClick={(e) => setSearch('events')}>Events</button>
             <div className='search-container'>
                 { search === 'groups'
                     ? (<>
