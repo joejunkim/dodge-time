@@ -48,6 +48,8 @@ export const deleteGroup = (groupId) => async dispatch => {
         method: 'DELETE',
     });
 
+    console.log('-------------->')
+
     if (response.ok) {
         const group = await response.json();
         dispatch(deleteOneGroup(group));
@@ -76,10 +78,10 @@ const groupsReducer = (state = initialState, action) => {
         case DELETE_GROUP:
             return {
                 ...state,
-                [action.groupId]: {
-                    ...state[action.groupId],
-                    groups: state[action.groupId].filter(
-                        (group) => group.id !== action.groupId
+                [action.group.id]: {
+                    ...state[action.group.id],
+                    groups: state[action.group.id].filter(
+                        (group) => group.id !== action.group.groupId
                     ),
                 },
             }

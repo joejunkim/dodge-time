@@ -14,7 +14,7 @@ function DeleteGroupForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await dispatch(deleteGroup(groupId))
-        history.push('/groups')
+        history.push('/')
     };
 
     return (
