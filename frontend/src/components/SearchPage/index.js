@@ -19,10 +19,8 @@ const SearchPage = () => {
 
     return (
         <div>
-            <Link onClick={(e) => setSearch('groups')}>Groups
-            </Link>
-            <Link onClick={(e) => setSearch('events')}>Events
-            </Link>
+            <Link onClick={(e) => setSearch('groups')}>Groups</Link>
+            <Link onClick={(e) => setSearch('events')}>Events</Link>
             <div className='search-container'>
                 { search === 'groups'
                     ? (<>
@@ -40,8 +38,8 @@ const SearchPage = () => {
                             </div>
                         ))}
                         <NavLink to='/groups/create'>Start a New Group</NavLink>
-                    </>
-                ) : (<>
+                    </>)
+                    : (<>
                         <h1>Events</h1>
                         {events.map((event) => (
                             <div className='search-card'>
