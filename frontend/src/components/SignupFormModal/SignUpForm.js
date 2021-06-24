@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
 import './SignupForm.css';
+import LoginFormModal from "../LoginFormModal";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -30,10 +31,8 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
+    <form onSubmit={handleSubmit} id='modal'>
+      <h1>Sign Up</h1>
       <label>
         Email
         <input
@@ -71,6 +70,9 @@ function SignupFormPage() {
         />
       </label>
       <button type="submit">Sign Up</button>
+      <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+      </ul>
     </form>
   );
 }

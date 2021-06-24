@@ -1,7 +1,6 @@
 .splash-container{
     display: flex;
     justify-content:space-between;
-    /* background-image: url(../../images/splash-pic.jpg); */
 }
 
 /* .splash-box {
