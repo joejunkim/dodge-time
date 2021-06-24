@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getGroups } from "../../store/groups";
 import { NavLink } from "react-router-dom";
-// import { getGroupDetails } from "../../store/groups";
+import DeleteGroupModal from '../DeleteGroupFormModal'
 
 const GroupIdPage = () => {
     const dispatch = useDispatch();
@@ -19,8 +19,7 @@ const GroupIdPage = () => {
             <h1>{group?.name}</h1>
             <h3>{group?.type}</h3>
             <h3>{group?.description}</h3>
-            <NavLink to={`/groups/${groupId}/edit`}>Edit Group</NavLink>
-            <NavLink to={`/groups/${groupId}/delete`}>Delete Group</NavLink>
+            <DeleteGroupModal>Delete Group</DeleteGroupModal>
         </>
     )
 }
