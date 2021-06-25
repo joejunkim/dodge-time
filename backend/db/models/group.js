@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Group = sequelize.define('Group', {
     name: DataTypes.STRING,
+    ownerId: DataTypes.INTEGER,
     type: DataTypes.STRING,
     description: DataTypes.STRING
   }, {});
@@ -13,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     Group.belongsToMany(models.User, columnMapping, { onDelete: 'CASCADE' } );
-    Group.hasMany(models.Event, {foreignKey: 'groupId', onDelete: 'CASCADE'});
+    Group.belongsTo(models.User, { foreignKey: 'ownerId' })
+    Group.hasMany(models.Event, { foreignKey: 'groupId', onDelete: 'CASCADE' });
   };
   return Group;
 };
