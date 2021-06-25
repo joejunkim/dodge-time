@@ -1,12 +1,18 @@
 import { csrfFetch } from "./csrf";
 
 export const LOAD_EVENTS = "events/LOAD_EVENTS"
+export const ADD_EVENT = "events/ADD_EVENT"
 export const UPDATE_EVENT = "events/UPDATE_EVENT"
 export const DELETE_EVENT = "events/DELETE_EVENT"
 
 const loadEvents = (events) => ({
     type: LOAD_EVENTS,
     events
+})
+
+const addOneEvent = (event) => ({
+    type: ADD_EVENT,
+    event
 })
 
 const updateOneEvent = (event) => ({
@@ -27,6 +33,21 @@ export const getEvents = () => async dispatch => {
         dispatch(loadEvents(events));
     }
 };
+
+export const addEvent = (eventData) => async dispatch => {
+    const response = await csrfFetch('/api/events',
+        {
+            method: 'POST',
+            body: JSON.stringify(eventData)
+        }
+    )
+
+    if (response.ok) {
+        const event = await response.json();
+        dispatch(addOneEvent(event))
+        return event;
+    }
+}
 
 export const updateEvent = (eventData, eventId) => async dispatch => {
     const response = await csrfFetch(`/api/events/${eventId}`, {

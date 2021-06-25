@@ -1,13 +1,16 @@
+import * as sessionActions from '../../store/session';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react';
 import { getGroups } from "../../store/groups";
 import { getEvents } from "../../store/events";
 import { Link, NavLink } from "react-router-dom";
+import LoginFormModal from "../LoginFormModal"
 
 import './SearchPage.css'
 
 const SearchPage = () => {
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
     const groups = useSelector((state) => Object.values(state.groups))
     const events = useSelector((state) => Object.values(state.events))
     const [search, setSearch] = useState('groups')
@@ -37,7 +40,10 @@ const SearchPage = () => {
                                 </Link>
                             </div>
                         ))}
-                        <NavLink to='/groups/create'>Start a New Group</NavLink>
+                        { sessionUser
+                            ? (<NavLink to='/groups/create'>Start a New Group</NavLink>)
+                            : (<LoginFormModal />)
+                        }
                     </>)
                     : (<>
                         <h1>Events</h1>
@@ -56,7 +62,6 @@ const SearchPage = () => {
                                 </Link>
                             </div>
                         ))}
-                        <NavLink to='/events/create'>Create a New Event</NavLink>
                     </>)}
             </div>
         </div>

@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import SplashPage from "./components/SplashPage"
 import SearchPage from "./components/SearchPage"
 import CreateGroupPage from "./components/CreateGroupPage";
+import CreateEventPage from "./components/CreateEventPage"
 import GroupIdPage from "./components/GroupIdPage/GroupIdPage";
 import EventIdPage from "./components/EventIdPage/EventIdPage"
 import * as sessionActions from "./store/session";
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/groups/:groupId">
             <GroupIdPage />
+          </Route>
+          <Route path="/events/create">
+            <CreateEventPage />
           </Route>
           <Route path="/events/:eventId">
             <EventIdPage />

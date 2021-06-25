@@ -10,6 +10,11 @@ router.get('/', asyncHandler(async (req, res) => {
     res.json(events);
 }));
 
+router.post('/', asyncHandler(async (req, res) => {
+    const id = await db.Event.create(req.body);
+    res.json(id)
+}));
+
 router.put(`/:eventId`, asyncHandler(async (req, res) => {
     const eventId = req.params.eventId;
     await db.Event.update(req.body,

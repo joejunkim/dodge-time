@@ -1,3 +1,4 @@
+import * as sessionActions from '../../store/session';
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
@@ -7,11 +8,13 @@ import { Link, NavLink } from "react-router-dom";
 import Calendar from 'react-calendar'
 import EditGroupModal from "../EditGroupFormModal";
 import DeleteGroupModal from '../DeleteGroupFormModal'
+import LoginFormModal from "../LoginFormModal"
 
 import './GroupIdPage.css'
 
 const GroupIdPage = () => {
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
     const { groupId } = useParams();
     const group = useSelector((state) => (state.groups[groupId]))
     const allEvents = useSelector((state) => Object.values(state.events))
@@ -33,11 +36,16 @@ const GroupIdPage = () => {
                 <h3>Description</h3>
                 {group?.description}
                 <p />
-                <div>
-                    <EditGroupModal />
-                    <DeleteGroupModal />
-                    <button onClick={''}>Join Group</button>
-                </div>
+                { sessionUser
+                    ? (<div>
+                            <EditGroupModal />
+                            <DeleteGroupModal />
+                            <button onClick={''}>Join Group</button>
+                    </div>)
+                    : (<div>
+                        <LoginFormModal />
+                    </div>)
+                }
             </div>
             <div className='group-events'>
                 <div className='group-events__header'>

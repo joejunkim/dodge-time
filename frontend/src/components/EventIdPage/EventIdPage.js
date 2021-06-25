@@ -1,3 +1,4 @@
+import * as sessionActions from '../../store/session';
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
@@ -6,11 +7,13 @@ import { getGroups } from "../../store/groups";
 import { Link } from 'react-router-dom'
 import EditEventModal from "../EditEventFormModal"
 import DeleteEventModal from "../DeleteEventFormModal";
+import LoginFormModal from "../LoginFormModal"
 
 import './EventIdPage.css'
 
 const EventIdPage = () => {
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
     const { eventId } = useParams();
     const event = useSelector((state) => (state.events[eventId]))
     const group = useSelector((state) => (state.groups[event?.groupId]))
@@ -35,11 +38,16 @@ const EventIdPage = () => {
                     {group?.name}
                 </Link>
                 <p />
-                <div>
-                    <EditEventModal />
-                    <DeleteEventModal />
-                    <button onClick={''}>RSVP</button>
-                </div>
+                { sessionUser
+                    ? (<div>
+                        <EditEventModal />
+                        <DeleteEventModal />
+                        <button onClick={''}>RSVP</button>
+                    </div>)
+                    : (<div>
+                        <LoginFormModal />
+                    </div>)
+                }
             </div>
             <div className='event-footer'>
                 {/* <EditEventModal /> */}
