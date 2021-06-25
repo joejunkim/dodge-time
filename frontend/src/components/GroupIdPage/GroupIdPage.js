@@ -17,6 +17,7 @@ const GroupIdPage = () => {
     const sessionUser = useSelector(state => state.session.user);
     const { groupId } = useParams();
     const group = useSelector((state) => (state.groups[groupId]))
+    const users = useSelector((state) => state.users)
     const allEvents = useSelector((state) => Object.values(state.events))
     const events = allEvents.filter((event) => event.groupId == groupId)
 
@@ -40,12 +41,15 @@ const GroupIdPage = () => {
                     ? (<div>
                             <EditGroupModal />
                             <DeleteGroupModal />
-                            <button onClick={''}>Join Group</button>
+                            <button>Join Group</button>
                     </div>)
                     : (<div>
                         <LoginFormModal />
                     </div>)
                 }
+            </div>
+            <div>
+                {users}
             </div>
             <div className='group-events'>
                 <div className='group-events__header'>

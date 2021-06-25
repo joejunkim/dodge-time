@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditGroupForm from './EditGroupForm';
 
-function EditGroupModal() {
+function EditGroupModalsdfsd() {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -17,4 +17,4 @@ function EditGroupModal() {
     )
 }
 
-export default EditGroupModal;
+export default EditGroupModalsdfsd;

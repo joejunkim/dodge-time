@@ -52,7 +52,7 @@ function EditGroupForm() {
                 Name
                 <input
                     type='text'
-                    value={name}
+                    placeholder={name}
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
@@ -61,7 +61,7 @@ function EditGroupForm() {
                 Type
                 <input
                     type='text'
-                    value={type}
+                    placeholder={type}
                     onChange={(e) => setType(e.target.value)}
                     required
                 />
@@ -70,7 +70,7 @@ function EditGroupForm() {
                 Description
                 <textarea
                     type='text'
-                    value={description}
+                    placeholder={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required
                 />

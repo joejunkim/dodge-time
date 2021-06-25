@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import DatePicker from "react-datepicker";
 
 import './CreateEventPage.css'
 import { addEvent, getEvents } from "../../store/events"
@@ -11,7 +12,7 @@ function CreateEventPage() {
     const sessionUser = useSelector(state => state.session.user);
     const [name, setName] = useState('');
     const [type, setType] = useState('');
-    const [date, setDate] = useState(new Date(Date.UTC(2016, 1, 1)));
+    const [date, setDate] = useState(new Date());
     const [capacity, setCapacity] = useState(0);
     const [description, setDescription] = useState('')
     const [errors, setErrors] = useState([]);
@@ -65,33 +66,41 @@ function CreateEventPage() {
     return (
         <form className='create-event__form' onSubmit={handleSubmit}>
             <h1>Create a New Event</h1>
-            <label>
-                Name
-                <input
-                    type='text'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Type
-                <input
-                    type='text'
-                    value={type}
-                    onChange={(e) => setType(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Description
-                <textarea
-                    type='text'
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                />
-            </label>
+            <label>Name</label>
+            <input
+                type='text'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+            />
+            <label>Type</label>
+            <input
+                type='text'
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+                required
+            />
+            <label>Description</label>
+            <textarea
+                type='text'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+            />
+            <label>Date</label>
+            <DatePicker
+                value={date}
+                // selected={date}
+                onChange={(date) => setDate(date)}
+                required
+            />
+                        <label>Description</label>
+            <textarea
+                type='text'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+            />
             <button type="submit" disabled={!!errors.length}>Create Event</button>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}

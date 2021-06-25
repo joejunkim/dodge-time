@@ -7,6 +7,7 @@ import CreateGroupPage from "./components/CreateGroupPage";
 import CreateEventPage from "./components/CreateEventPage"
 import GroupIdPage from "./components/GroupIdPage/GroupIdPage";
 import EventIdPage from "./components/EventIdPage/EventIdPage"
+import MyAccountPage from "./components/MyAccountPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/events/:eventId">
             <EventIdPage />
+          </Route>
+          <Route path="/users/my-account">
+            <MyAccountPage />
           </Route>
         </Switch>
       )}
