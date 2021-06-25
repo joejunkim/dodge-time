@@ -36,6 +36,7 @@ const GroupIdPage = () => {
                 <div>
                     <EditGroupModal />
                     <DeleteGroupModal />
+                    <button onClick={''}>Join Group</button>
                 </div>
             </div>
             <div className='group-events'>

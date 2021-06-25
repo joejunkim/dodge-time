@@ -96,7 +96,7 @@ const groupsReducer = (state = initialState, action) => {
               };
         case DELETE_GROUP:
             delete state[action.group]
-            return { ...state, }
+            return { ...state }
         default:
             return state;
     }

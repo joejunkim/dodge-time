@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import { getEvents } from "../../store/events";
 import { getGroups } from "../../store/groups";
 import { Link } from 'react-router-dom'
+import EditEventModal from "../EditEventFormModal"
+import DeleteEventModal from "../DeleteEventFormModal";
 
 import './EventIdPage.css'
 
@@ -32,7 +34,12 @@ const EventIdPage = () => {
                 <Link to={`/groups/${group?.id}`}>
                     {group?.name}
                 </Link>
-
+                <p />
+                <div>
+                    <EditEventModal />
+                    <DeleteEventModal />
+                    <button onClick={''}>RSVP</button>
+                </div>
             </div>
             <div className='event-footer'>
                 {/* <EditEventModal /> */}

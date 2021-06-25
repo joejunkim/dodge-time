@@ -10,4 +10,17 @@ router.get('/', asyncHandler(async (req, res) => {
     res.json(events);
 }));
 
+router.put(`/:eventId`, asyncHandler(async (req, res) => {
+    const eventId = req.params.eventId;
+    await db.Event.update(req.body,
+        { where: { id: eventId } })
+    res.json(eventId);
+}))
+
+router.delete(`/:eventId`, asyncHandler(async (req, res) => {
+    const eventId = req.params.eventId;
+    await db.Event.destroy({ where: { id: eventId }});
+    res.json(eventId);
+}));
+
 module.exports = router;
