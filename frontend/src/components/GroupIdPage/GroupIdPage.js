@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getGroups } from "../../store/groups";
 import { getEvents } from "../../store/events";
+import { getUserGroups } from "../../store/userGroups"
 import { Link, NavLink } from "react-router-dom";
 
 import Calendar from 'react-calendar'
@@ -19,10 +20,16 @@ const GroupIdPage = () => {
     const dispatch = useDispatch();
     const { groupId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
+    const myUserName = sessionUser.username
+    const myId = sessionUser.id
+
     const group = useSelector((state) => (state.groups[groupId]))
     const users = useSelector((state) => state.users)
+
     const allEvents = useSelector((state) => Object.values(state.events))
     const events = allEvents.filter((event) => event.groupId == groupId)
+
+    // const allUserGroups = useSelector((state) => Object.values(state.userGroups))
 
     const [inGroup, setInGroup] = useState(false)
     const [eventDisplay, setEventDisplay] = useState('list')
@@ -30,11 +37,12 @@ const GroupIdPage = () => {
     useEffect(() => {
         dispatch(getGroups());
         dispatch(getEvents());
+        dispatch(getUserGroups());
     }, [dispatch, inGroup])
 
     const joinClick = async () => {
         const payload = {
-            userId: sessionUser.id,
+            userId: myId,
             groupId: groupId
         }
         await dispatch(joinGroup(payload));
@@ -42,7 +50,7 @@ const GroupIdPage = () => {
     }
 
     const leaveClick = async () => {
-        await dispatch(leaveGroup(sessionUser.id, groupId))
+        await dispatch(leaveGroup(myId, groupId))
         setInGroup(false)
     }
 

@@ -4,8 +4,11 @@ const router = express.Router();
 
 const db = require('../../db/models')
 
-router.get('/', asyncHandler(async (req, res) => {
-    const userGroups = await db.UserGroup.findAll();
+router.get('/:myId', asyncHandler(async (req, res) => {
+    const { myId } = req.params
+    const userGroups = await db.UserGroup.findAll({
+        where: { userId: myId }
+    });
     res.json(userGroups);
 }));
 

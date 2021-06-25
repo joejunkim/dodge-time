@@ -19,12 +19,13 @@ const leaveOneGroup = (userGroup) => ({
     userGroup
 })
 
-export const getUserGroups = () => async dispatch => {
-    const response = await csrfFetch('/api/userGroups')
+export const getUserGroups = (myId) => async dispatch => {
+    const response = await csrfFetch(`/api/userGroups/${myId}`)
 
     if (response.ok) {
         const userGroups = await response.json()
-        dispatch(loadUserGroups(userGroups))
+        await dispatch(loadUserGroups(userGroups))
+        return userGroups
     }
 }
 
@@ -58,14 +59,11 @@ const initialState= {}
 const userGroupsReducer = (state = initialState, action) => {
     switch(action.type) {
         case LOAD_USERGROUPS:
-            const allUserGroups = {};
-            action.userGroups.forEach((group) => {
-                allUserGroups[group.id] = group;
+            const allUserGroups = {...state};
+            action.userGroups.forEach((userGroup) => {
+                allUserGroups[userGroup.id] = userGroup;
             })
-            return {
-                ...state,
-                ...allUserGroups,
-            }
+            return allUserGroups
         case JOIN_GROUP:
             const newState = {
                 ...state,

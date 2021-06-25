@@ -16,15 +16,26 @@ const MyAccountPage = () => {
     const myId = sessionUser.id
 
     const allGroups = useSelector((state) => Object.values(state.groups))
+    const allGroupsObject = useSelector((state) => (state.groups))
     const ownedGroups = allGroups.filter((group) => group.ownerId == myId)
 
     const allUserGroups = useSelector((state) => Object.values(state.userGroups))
-    const memberUserGroups = allUserGroups.filter((group) => group.userId == myId)
+
+    const [groupArray, setGroupArray] = useState([])
+    console.log('---------> allUserGroups:', allUserGroups)
 
     useEffect(() => {
         dispatch(getGroups());
         dispatch(getEvents());
-        dispatch(getUserGroups());
+    }, [dispatch])
+
+    useEffect(async () => {
+        const testArray = []
+        const testUserGroup = await dispatch(getUserGroups(myId));
+        Object.values(testUserGroup).forEach(testGroup => {
+            testArray.push(testGroup.groupId)
+        })
+        setGroupArray(testArray)
     }, [dispatch])
 
     return (
@@ -40,13 +51,13 @@ const MyAccountPage = () => {
                 </Link>
             ))}
             <h3>Member</h3>
-            {/* {memberGroups?.map((group) => (
-                <Link to={`/groups/${group?.id}`}>
-                    <div className='search-card__name'>{group?.groupId}</div>
-                    <div className='search-card__type'>{group?.type}</div>
+            {groupArray?.map((group) => (
+                <Link to={`/groups/${group}`}>
+                    {/* <div className='search-card__name'>{allGroups[group?.groupId]}</div> */}
+                    <div className='search-card__type'>{allGroupsObject[group].name}</div>
                     <div className='search-card__type'>{group?.date}</div>
                 </Link>
-            ))} */}
+            ))}
             <h2>My Events</h2>
             <h3>Hosting</h3>
             <h3>RSVP'd</h3>
