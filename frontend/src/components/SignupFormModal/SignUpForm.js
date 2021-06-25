@@ -31,7 +31,7 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit} id='modal'>
+    <form onSubmit={handleSubmit}>
       <h1>Sign Up</h1>
       <label>
         Email

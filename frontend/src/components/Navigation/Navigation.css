@@ -3,12 +3,16 @@
     display: flex;
     justify-content: space-between;
     padding: 10px 10px 10px 10px;
-    /* margin: 10px; */
     background-color: rgba(248, 39, 39, 0.767);
     border: 1px solid #EEE;
 }
 
-/* .navbar__logo {
+.navbar__logo {
     display: flex;
     justify-content: flex-start;
-} */
+}
+
+.navbar__right {
+    display: flex;
+    justify-content: flex-end;
+}

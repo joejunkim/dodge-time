@@ -13,7 +13,7 @@ function CreateEventPage() {
     const [name, setName] = useState('');
     const [type, setType] = useState('');
     const [date, setDate] = useState(new Date());
-    const [capacity, setCapacity] = useState(0);
+    const [capacity, setCapacity] = useState();
     const [description, setDescription] = useState('')
     const [errors, setErrors] = useState([]);
     const history = useHistory();
@@ -22,7 +22,7 @@ function CreateEventPage() {
 
     useEffect(() => {
         dispatch(getEvents());
-    }, [dispatch])
+    }, [dispatch, events])
 
     useEffect(() => {
         const errors = [];
@@ -80,13 +80,6 @@ function CreateEventPage() {
                 onChange={(e) => setType(e.target.value)}
                 required
             />
-            <label>Description</label>
-            <textarea
-                type='text'
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
-            />
             <label>Date</label>
             <DatePicker
                 value={date}
@@ -94,13 +87,21 @@ function CreateEventPage() {
                 onChange={(date) => setDate(date)}
                 required
             />
-                        <label>Description</label>
+            <label>Capacity</label>
+            <input
+                type='integer'
+                value={capacity}
+                onChange={(e) => setCapacity(e.target.value)}
+                required
+            />
+            <label>Description</label>
             <textarea
                 type='text'
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
             />
+            <p />
             <button type="submit" disabled={!!errors.length}>Create Event</button>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}

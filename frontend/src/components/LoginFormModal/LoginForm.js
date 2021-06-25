@@ -20,8 +20,7 @@ function LoginForm() {
   };
 
   return (
-    <div id='modal'>
-      <form onSubmit={handleSubmit} id="modal-content">
+      <form onSubmit={handleSubmit}>
         <h1>Log In</h1>
         <label>
           Username or Email
@@ -48,7 +47,6 @@ function LoginForm() {
           ))}
         </ul>
       </form>
-    </div>
   );
 }
 

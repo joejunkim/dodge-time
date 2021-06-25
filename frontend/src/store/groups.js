@@ -49,11 +49,11 @@ export const addGroup = (groupData) => async dispatch => {
     }
 }
 
-export const updateGroup = (groupData, groupId) => async dispatch => {
+export const updateGroup = (userGroupData, groupId) => async dispatch => {
     const response = await csrfFetch(`/api/groups/${groupId}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(groupData)
+            body: JSON.stringify(userGroupData)
         })
 
     if (response.ok) {

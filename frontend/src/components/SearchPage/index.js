@@ -22,12 +22,15 @@ const SearchPage = () => {
 
     return (
         <div>
-            <button onClick={(e) => setSearch('groups')}>Groups</button>|
-            <button onClick={(e) => setSearch('events')}>Events</button>
+            <button onClick={(e) => setSearch('groups')}>
+                <h1>Groups</h1>
+            </button>
+            <button onClick={(e) => setSearch('events')}>
+                <h1>Events</h1>
+            </button>
             <div className='search-container'>
                 { search === 'groups'
                     ? (<>
-                        <h1>Groups</h1>
                         {groups.map((group) => (
                             <div className='search-card'>
                                 <Link to={`/groups/${group.id}`}>
@@ -42,11 +45,10 @@ const SearchPage = () => {
                         ))}
                         { sessionUser
                             ? (<NavLink to='/groups/create'>Start a New Group</NavLink>)
-                            : (<LoginFormModal />)
+                            : (<LoginFormModal/>)
                         }
                     </>)
                     : (<>
-                        <h1>Events</h1>
                         {events.map((event) => (
                             <div className='search-card'>
                                 <Link to={`/events/${event.id}`}>

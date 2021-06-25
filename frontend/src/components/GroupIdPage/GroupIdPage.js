@@ -5,51 +5,71 @@ import { useParams } from "react-router";
 import { getGroups } from "../../store/groups";
 import { getEvents } from "../../store/events";
 import { Link, NavLink } from "react-router-dom";
+
 import Calendar from 'react-calendar'
 import EditGroupModal from "../EditGroupFormModal";
 import DeleteGroupModal from '../DeleteGroupFormModal'
 import LoginFormModal from "../LoginFormModal"
 
+import { joinGroup, leaveGroup } from '../../store/userGroups'
+
 import './GroupIdPage.css'
 
 const GroupIdPage = () => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
     const { groupId } = useParams();
+    const sessionUser = useSelector(state => state.session.user);
     const group = useSelector((state) => (state.groups[groupId]))
     const users = useSelector((state) => state.users)
     const allEvents = useSelector((state) => Object.values(state.events))
     const events = allEvents.filter((event) => event.groupId == groupId)
 
+    const [inGroup, setInGroup] = useState(false)
     const [eventDisplay, setEventDisplay] = useState('list')
 
     useEffect(() => {
         dispatch(getGroups());
         dispatch(getEvents());
-    }, [dispatch])
+    }, [dispatch, inGroup])
+
+    const joinClick = async () => {
+        const payload = {
+            userId: sessionUser.id,
+            groupId: groupId
+        }
+        await dispatch(joinGroup(payload));
+        setInGroup(true)
+    }
+
+    const leaveClick = async () => {
+        await dispatch(leaveGroup(sessionUser.id, groupId))
+        setInGroup(false)
+    }
 
     return (
         <div className='group-container'>
             <div className='group-info'>
                 <h1>{group?.name}</h1>
+                { sessionUser?.id === group?.ownerId
+                    ? (<div>
+                            <EditGroupModal />
+                            <DeleteGroupModal />
+                    </div>)
+                    : (<div />)
+                }
                 <h3>Type</h3>
                 {group?.type}
                 <h3>Description</h3>
                 {group?.description}
                 <p />
-                { sessionUser
+                { inGroup
                     ? (<div>
-                            <EditGroupModal />
-                            <DeleteGroupModal />
-                            <button>Join Group</button>
+                            <button onClick={leaveClick}>Leave Group</button>
                     </div>)
-                    : (<div>
-                        <LoginFormModal />
-                    </div>)
+                    : ((<div>
+                            <button onClick={joinClick}>Join Group</button>
+                        </div>))
                 }
-            </div>
-            <div>
-                {users}
             </div>
             <div className='group-events'>
                 <div className='group-events__header'>
@@ -69,16 +89,16 @@ const GroupIdPage = () => {
                         </div>
                 </>)
                 : (<>
-                        <div className='group-events__list'>
-                            {events.map((event) => (
-                                <Link to={`/events/${event.id}`}>
-                                    <div className='search-card__name'>{event.name}</div>
-                                    <div className='search-card__type'>{event.type}</div>
-                                    <div className='search-card__type'>{event.date}</div>
-                                </Link>
-                            ))}
-                        </div>
-                    </>)}
+                    <div className='group-events__list'>
+                        {events.map((event) => (
+                            <Link key={event} to={`/events/${event.id}`}>
+                                <div className='search-card__name'>{event.name}</div>
+                                <div className='search-card__type'>{event.type}</div>
+                                <div className='search-card__type'>{event.date}</div>
+                            </Link>
+                        ))}
+                    </div>
+                </>)}
             </div>
         </div>
     )

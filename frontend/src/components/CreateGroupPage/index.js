@@ -9,6 +9,8 @@ import { addGroup, getGroups } from "../../store/groups"
 function CreateGroupPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+
+    const ownerId = sessionUser.id;
     const [name, setName] = useState('');
     const [type, setType] = useState('');
     const [description, setDescription] = useState('')
@@ -42,6 +44,7 @@ function CreateGroupPage() {
 
         const payload = {
             name,
+            ownerId,
             type,
             description
         }

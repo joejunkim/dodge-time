@@ -16,17 +16,21 @@ function Navigation({ isLoaded }){
     );
   } else {
     sessionLinks = (
-      <div>
+      <>
         <LoginFormModal />
         <SignUpFormModal />
-      </div>
+      </>
     );
   }
 
   return (
     <ul className='navbar__container'>
-      <NavLink exact to="/">DODGETHIS</NavLink>
-      {isLoaded && sessionLinks}
+      <div className='navbar__logo'>
+        <NavLink exact to="/">DODGETHIS</NavLink>
+      </div>
+      <div className='navbar__right'>
+        {isLoaded && sessionLinks}
+      </div>
     </ul>
   );
 }
