@@ -19,8 +19,7 @@ const MyAccountPage = () => {
     const ownedGroups = allGroups.filter((group) => group.ownerId == myId)
 
     const allUserGroups = useSelector((state) => Object.values(state.userGroups))
-    const memberUserGroups = allUserGroups.filter((group) => group.userId == myId
-
+    const memberUserGroups = allUserGroups.filter((group) => group.userId == myId)
 
     useEffect(() => {
         dispatch(getGroups());
@@ -41,13 +40,13 @@ const MyAccountPage = () => {
                 </Link>
             ))}
             <h3>Member</h3>
-            {memberGroups?.map((group) => (
+            {/* {memberGroups?.map((group) => (
                 <Link to={`/groups/${group?.id}`}>
                     <div className='search-card__name'>{group?.groupId}</div>
                     <div className='search-card__type'>{group?.type}</div>
                     <div className='search-card__type'>{group?.date}</div>
                 </Link>
-            ))}
+            ))} */}
             <h2>My Events</h2>
             <h3>Hosting</h3>
             <h3>RSVP'd</h3>
