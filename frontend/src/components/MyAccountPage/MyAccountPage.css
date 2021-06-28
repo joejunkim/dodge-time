@@ -28,31 +28,3 @@
     height: 150px;
     width: 200px;
 }
-
-.search-card {
-    background:rgba(248, 39, 39, 0.767);
-    border: 1px solid #EEE;
-    width: 400px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    overflow-wrap: normal;
-    margin: 0px 0px 20px 0px;
-    border-radius: 20px;
-    position: relative;
-}
-
-.search-card:hover {
-    transform: scale(1.03, 1.03)
-}
-
-.search-card__name {
-    font-size: larger;
-    font-weight: bold;
-    margin: 15px 15px 5px;
-}
-
-.search-card__info {
-    font-size:small;
-    margin: 0px 15px 10px;
-}

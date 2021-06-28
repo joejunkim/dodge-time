@@ -8,6 +8,7 @@ body {
 a {
     color: yellow;
     text-decoration: none;
+    font-size: 14px;
 }
 
 a:hover {
@@ -36,6 +37,7 @@ form {
     justify-content: space-between;
 }
 
+
 .search-card {
     background:rgba(248, 39, 39, 0.767);
     border: 1px solid #EEE;
@@ -63,3 +65,4 @@ form {
     font-size:small;
     margin: 0px 15px 10px;
 }
+

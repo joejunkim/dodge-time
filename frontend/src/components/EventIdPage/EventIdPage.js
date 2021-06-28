@@ -19,10 +19,9 @@ const EventIdPage = () => {
     const event = useSelector((state) => (state.events[eventId]))
     const group = useSelector((state) => (state.groups[event?.groupId]))
     const venue = useSelector((state) => (state.venues[event?.venueId]))
+    const rsvps = useSelector((state) => (state.rsvps))
     const sessionUser = useSelector(state => state.session.user);
     let myId = null;
-
-    console.log('---------->', venue)
 
     if (sessionUser) {
         myId = sessionUser.id

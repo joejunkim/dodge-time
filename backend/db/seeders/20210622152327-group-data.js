@@ -6,7 +6,7 @@ module.exports = {
       {
         name: "Average Joe's",
         ownerId: 2,
-        type: "Casual / New Players",
+        type: "🟢 Casual / New Players",
         city: "Seattle",
         state: "WA",
         description: "Led by Vince Vaughn, this team won in the movie, Dodgeball!",
@@ -16,7 +16,7 @@ module.exports = {
       {
         name: "Purple Cobras",
         ownerId: 3,
-        type: "Competitive / Experienced Players",
+        type: "🔴 Competitive / Experienced Players",
         city: "New York City",
         state: "NY",
         description: "Led by Ben Stiller, this team lost after Ben bled his own blood",
@@ -26,7 +26,7 @@ module.exports = {
       {
         name: "LA Dodgers",
         ownerId: 4,
-        type: "Competitive / New Players",
+        type: "🟡 Competitive / New Players",
         city: "Los Angeles",
         state: "CA",
         description: "Deciding to more properly match their name, the baseball team has now transitioned to become a dodgeball team instead!",
@@ -36,7 +36,7 @@ module.exports = {
       {
         name: "Rage Cage",
         ownerId: 3,
-        type: "Casual / Experienced Players",
+        type: "🔵 Casual / Experienced Players",
         city: "Seattle",
         state: "WA",
         description: "A local Seattle group focused on having casual games with mid to high level players.",

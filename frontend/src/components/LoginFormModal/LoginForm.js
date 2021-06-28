@@ -45,11 +45,7 @@ function LoginForm() {
           />
         </div>
         <button id='login-button' type="submit">Log In</button>
-        <>
-          {errors.map((error, idx) => (
-            <span key={idx}>{error}</span>
-          ))}
-        </>
+        {errors.map((error, idx) => (<span key={idx}>{error}</span>))}
       </form>
   );
 }

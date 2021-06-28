@@ -1,9 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignupFormModal'
+
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -22,6 +24,7 @@ function Navigation({ isLoaded }){
       </>
     );
   }
+
 
   return (
     <ul className='navbar__container'>

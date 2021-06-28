@@ -83,10 +83,10 @@ function EditEventForm() {
                     required
                 >
                     <option>--- select one ---</option>
-                    <option>Casual / New Players</option>
-                    <option>Casual / Experienced Players</option>
-                    <option>Competitive / New Players</option>
-                    <option>Competitive / Experienced Players</option>
+                    <option>🟢 Casual / New Players</option>
+                    <option>🔵 Casual / Experienced Players</option>
+                    <option>🟡 Competitive / New Players</option>
+                    <option>🔴 Competitive / Experienced Players</option>
                 </select>
             </div>
             <div className='edit-field'>

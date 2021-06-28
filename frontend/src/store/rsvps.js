@@ -19,8 +19,8 @@ const noRSVP = (rsvp) => ({
     rsvp
 })
 
-export const getRSVPS = (myId) => async dispatch => {
-    const response = await csrfFetch(`/api/rsvps/${myId}`)
+export const getRSVPS = () => async dispatch => {
+    const response = await csrfFetch(`/api/rsvps/`)
 
     if (response.ok) {
         const rsvps = await response.json()

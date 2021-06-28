@@ -85,10 +85,10 @@ function CreateGroupPage() {
                     required
                 >
                     <option>--- select one ---</option>
-                    <option>Casual / New Players</option>
-                    <option>Casual / Experienced Players</option>
-                    <option>Competitive / New Players</option>
-                    <option>Competitive / Experienced Players</option>
+                    <option>🟢 Casual / New Players</option>
+                    <option>🔵 Casual / Experienced Players</option>
+                    <option>🟡 Competitive / New Players</option>
+                    <option>🔴 Competitive / Experienced Players</option>
                 </select>
             </div>
             <div className='create-group__field'>
