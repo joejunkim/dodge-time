@@ -31,7 +31,7 @@ function SplashPage() {
                 <div className='splash-body'>
                     <h1>Welcome to DodgeThis!</h1>
                     <h3>Join groups to meet fellow players, search for local and national events, and most importantly, dodge balls!</h3>
-                    <h3>Remember, if you can dodge a wrench..</h3>
+                    <h3>If you can dodge a wrench..</h3>
                     <p />
                     <NavLink to='/find'>Search For Groups And Events</NavLink>
                     {demoLink}
