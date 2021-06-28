@@ -71,10 +71,7 @@ const EventIdPage = () => {
                     {venue?.name} | Capacity: {event?.capacity}
                 </div>
                 <div>
-                    {venue?.address}
-                </div>
-                <div>
-                    {event?.city}, {event?.state}
+                    {venue?.address}, {event?.city}, {event?.state}
                 </div>
                 <div>
                     {event?.date} | {event?.time}

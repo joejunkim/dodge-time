@@ -28,8 +28,6 @@ function CreateEventPage() {
     const events = useSelector((state) => Object.values(state.events))
     const venues = useSelector((state) => Object.values(state.venues))
 
-    console.log('------>', venues)
-
     useEffect(() => {
         dispatch(getEvents());
         dispatch(getVenues());
@@ -65,7 +63,7 @@ function CreateEventPage() {
             description,
             hostId: myId,
             groupId: location.userProps.groupId,
-            venueId: venue.id
+            venueId: 1
         }
 
         const newEvent = await dispatch(addEvent(payload));

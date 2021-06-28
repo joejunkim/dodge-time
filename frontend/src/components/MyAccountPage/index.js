@@ -67,41 +67,46 @@ const MyAccountPage = () => {
             { search === 'groups'
                 ? (<div className='account-container'>
                     <div className='account-container__left'>
-                        <h3>Organizer</h3>
+                        <h2>Organizer</h2>
                         {ownedGroups?.map((group) => (
                             <Link to={`/groups/${group.id}`}>
                                 <div className='search-card__name'>{group?.name}</div>
-                                <div className='search-card__type'>{group?.type}</div>
+                                <div className='search-card__info'>{group?.type}</div>
+                                <div className='search-card__info'>{group?.city}, {group?.state}</div>
                             </Link>
                         ))}
                     </div>
                     <div className='account-container__right'>
-                        <h3>Member</h3>
+                        <h2>Member</h2>
                         {groupArray?.map((group) => (
                             <Link to={`/groups/${group}`}>
                                 <div className='search-card__name'>{allGroupsObject[group].name}</div>
-                                <div className='search-card__type'>{allGroupsObject[group].type}</div>
+                                <div className='search-card__info'>{allGroupsObject[group].type}</div>
+                                <div className='search-card__info'>{allGroupsObject[group].city}, {allGroupsObject[group].state}</div>
                             </Link>
                         ))}
                     </div>
                 </div>)
                 : (<div className='account-container'>
                     <div className='account-container__left'>
-                        <h3>Hosting</h3>
+                        <h2>Hosting</h2>
                         {hostEvents?.map((event) => (
                             <Link to={`/events/${event.id}`}>
                                 <div className='search-card__name'>{event?.name}</div>
-                                <div className='search-card__type'>{event?.type}</div>
+                                <div className='search-card__info'>{event?.type}</div>
+                                <div className='search-card__info'>{event?.city}, {event?.state}</div>
+                                <div className='search-card__info'>{event?.date} | {event?.time}</div>
                             </Link>
                         ))}
                     </div>
                     <div className='account-container__right'>
-                        <h3>RSVP'd</h3>
+                        <h2>RSVP'd</h2>
                         {eventArray?.map((event) => (
                             <Link to={`/events/${event}`}>
                                 <div className='search-card__name'>{allEventsObject[event].name}</div>
-                                <div className='search-card__type'>{allEventsObject[event].type}</div>
-                                <div className='search-card__date'>{allEventsObject[event].date}</div>
+                                <div className='search-card__info'>{allEventsObject[event].type}</div>
+                                <div className='search-card__info'>{allEventsObject[event].city}, {allEventsObject[event].state}</div>
+                                <div className='search-card__info'>{allEventsObject[event].date} | {allEventsObject[event].time}</div>
                             </Link>
                         ))}
                     </div>
