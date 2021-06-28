@@ -28,6 +28,9 @@ function Navigation({ isLoaded }){
       <div className='navbar__logo'>
         <NavLink exact to="/">DODGETHIS</NavLink>
       </div>
+      <div>
+        <NavLink exact to="/find">Search</NavLink>
+      </div>
       <div className='navbar__right'>
         {isLoaded && sessionLinks}
       </div>

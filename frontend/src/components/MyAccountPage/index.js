@@ -55,8 +55,8 @@ const MyAccountPage = () => {
 
     return (
         <>
-            <h1>{myUserName}'s Profile</h1>
-            <div className='search__options'>
+            <h1 className='account-profile'>{myUserName}'s Profile</h1>
+            <div className='account-options'>
                 <button onClick={(e) => setSearch('groups')}>
                     <h2>My Groups</h2>
                 </button>
@@ -65,39 +65,47 @@ const MyAccountPage = () => {
                 </button>
             </div>
             { search === 'groups'
-                ? (<>
-                    <h3>Organizer</h3>
-                    {ownedGroups?.map((group) => (
-                        <Link to={`/groups/${group.id}`}>
-                            <div className='search-card__name'>{group?.name}</div>
-                            <div className='search-card__type'>{group?.type}</div>
-                        </Link>
-                    ))}
-                    <h3>Member</h3>
-                    {groupArray?.map((group) => (
-                        <Link to={`/groups/${group}`}>
-                            <div className='search-card__name'>{allGroupsObject[group].name}</div>
-                            <div className='search-card__type'>{allGroupsObject[group].type}</div>
-                        </Link>
-                    ))}
-                </>)
-                : (<>
-                    <h3>Hosting</h3>
-                    {hostEvents?.map((event) => (
-                        <Link to={`/events/${event.id}`}>
-                            <div className='search-card__name'>{event?.name}</div>
-                            <div className='search-card__type'>{event?.type}</div>
-                        </Link>
-                    ))}
-                    <h3>RSVP'd</h3>
-                    {eventArray?.map((event) => (
-                        <Link to={`/events/${event}`}>
-                            <div className='search-card__name'>{allEventsObject[event].name}</div>
-                            <div className='search-card__type'>{allEventsObject[event].type}</div>
-                            <div className='search-card__date'>{allEventsObject[event].date}</div>
-                        </Link>
-                    ))}
-                </>)}
+                ? (<div className='account-container'>
+                    <div className='account-container__left'>
+                        <h3>Organizer</h3>
+                        {ownedGroups?.map((group) => (
+                            <Link to={`/groups/${group.id}`}>
+                                <div className='search-card__name'>{group?.name}</div>
+                                <div className='search-card__type'>{group?.type}</div>
+                            </Link>
+                        ))}
+                    </div>
+                    <div className='account-container__right'>
+                        <h3>Member</h3>
+                        {groupArray?.map((group) => (
+                            <Link to={`/groups/${group}`}>
+                                <div className='search-card__name'>{allGroupsObject[group].name}</div>
+                                <div className='search-card__type'>{allGroupsObject[group].type}</div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>)
+                : (<div className='account-container'>
+                    <div className='account-container__left'>
+                        <h3>Hosting</h3>
+                        {hostEvents?.map((event) => (
+                            <Link to={`/events/${event.id}`}>
+                                <div className='search-card__name'>{event?.name}</div>
+                                <div className='search-card__type'>{event?.type}</div>
+                            </Link>
+                        ))}
+                    </div>
+                    <div className='account-container__right'>
+                        <h3>RSVP'd</h3>
+                        {eventArray?.map((event) => (
+                            <Link to={`/events/${event}`}>
+                                <div className='search-card__name'>{allEventsObject[event].name}</div>
+                                <div className='search-card__type'>{allEventsObject[event].type}</div>
+                                <div className='search-card__date'>{allEventsObject[event].date}</div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>)}
         </>
     )
 }
