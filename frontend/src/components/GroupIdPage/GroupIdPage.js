@@ -20,11 +20,13 @@ const GroupIdPage = () => {
     const dispatch = useDispatch();
     const { groupId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    const myUserName = sessionUser.username
-    const myId = sessionUser.id
+    let myId = null;
+
+    if (sessionUser) {
+        myId = sessionUser.id
+    }
 
     const group = useSelector((state) => (state.groups[groupId]))
-    const users = useSelector((state) => state.users)
 
     const allEvents = useSelector((state) => Object.values(state.events))
     const events = allEvents.filter((event) => event.groupId == groupId)
@@ -58,7 +60,7 @@ const GroupIdPage = () => {
         <div className='group-container'>
             <div className='group-info'>
                 <h1>{group?.name}</h1>
-                { sessionUser?.id === group?.ownerId
+                { myId === group?.ownerId
                     ? (<div>
                             <EditGroupModal />
                             <DeleteGroupModal />
@@ -70,7 +72,7 @@ const GroupIdPage = () => {
                 <h3>Description</h3>
                 {group?.description}
                 <p />
-                { inGroup
+                { inGroup || myId === group?.ownerId
                     ? (<div>
                             <button onClick={leaveClick}>Leave Group</button>
                     </div>)
@@ -81,14 +83,16 @@ const GroupIdPage = () => {
             </div>
             <div className='group-events'>
                 <div className='group-events__header'>
-                    <h3>Upcoming Events</h3>
+                    <h2>Upcoming Events</h2>
                     <div>
-                        <button onClick={(e) => setEventDisplay('list')}>List</button>
-                        |
-                        <button onClick={(e) => setEventDisplay('calendar')}>Calendar</button>
-                        <p></p>
-                        <NavLink to='/events/create'>Create a New Event</NavLink>
+                        <button onClick={(e) => setEventDisplay('list')}>List View</button>
+                        <button onClick={(e) => setEventDisplay('calendar')}>Calendar View</button>
+                        <p />
                     </div>
+                    { myId === group?.ownerId
+                        ? (<NavLink to='/events/create'>Create a New Event</NavLink>)
+                        : (<div />)
+                    }
                 </div>
                 { eventDisplay === 'calendar'
                     ? (<>

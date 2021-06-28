@@ -2,7 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 25px
+    margin: 0px 0px 0px 50px
+}
+
+.search__options {
+    margin: 0px 0px 0px 50px
 }
 
 .search-card {
@@ -33,7 +37,3 @@
     font-size:small;
     margin: 15px 15px 15px;
 }
-
-/* .active {
-    color: yellow;
-} */

@@ -4,10 +4,11 @@
     margin: 25px
 }
 
-.group-info {
+/* .group-info {
     display: flex;
     flex-direction: column;
     width: 600px;
+        margin: 20px;
 }
 
 .group-events {
@@ -18,7 +19,7 @@
     justify-content: center;
     flex-direction: column;
     overflow-wrap: normal;
-    margin: 0px 0px 20px 0px;
+    margin: 20px;
     border-radius: 20px;
     position: relative;
 }
@@ -70,4 +71,4 @@
 .search-card__type {
     font-size:small;
     margin: 0px 15px 10px;
-}
+} */

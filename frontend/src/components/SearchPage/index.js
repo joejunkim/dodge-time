@@ -14,6 +14,7 @@ const SearchPage = () => {
     const groups = useSelector((state) => Object.values(state.groups))
     const events = useSelector((state) => Object.values(state.events))
     const [search, setSearch] = useState('groups')
+    const [className, setClassName] = useState('active')
 
     useEffect(() => {
         dispatch(getGroups());
@@ -22,12 +23,14 @@ const SearchPage = () => {
 
     return (
         <div>
-            <button onClick={(e) => setSearch('groups')}>
-                <h1>Groups</h1>
-            </button>
-            <button onClick={(e) => setSearch('events')}>
-                <h1>Events</h1>
-            </button>
+            <div className='search__options'>
+                <button onClick={(e) => setSearch('groups')}>
+                    <h1>Groups</h1>
+                </button>
+                <button onClick={(e) => setSearch('events')}>
+                    <h1>Events</h1>
+                </button>
+            </div>
             <div className='search-container'>
                 { search === 'groups'
                     ? (<>

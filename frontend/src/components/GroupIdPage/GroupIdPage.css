@@ -1,13 +1,13 @@
 .group-container {
     display: flex;
-    justify-content: space-between;
-    margin: 25px
 }
 
 .group-info {
     display: flex;
     flex-direction: column;
     width: 600px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .group-events {
@@ -18,15 +18,15 @@
     justify-content: center;
     flex-direction: column;
     overflow-wrap: normal;
-    margin: 0px 0px 20px 0px;
+    margin: 20px;
     border-radius: 20px;
     position: relative;
 }
 
 .group-events__header {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -44,6 +44,7 @@
     flex-direction: column;
     justify-content: column;
     align-items: center;
+    height: 119.3px;
     width: 300px;
     margin: 20px;
 }

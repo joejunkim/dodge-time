@@ -27,6 +27,14 @@ const EventIdPage = () => {
         <div className='event-container'>
             <div className='event-info'>
                 <h1>{event?.name}</h1>
+                { sessionUser?.id === event?.hostId
+                    ? (<div>
+                        <EditEventModal />
+                        <DeleteEventModal />
+                        <button onClick={''}>RSVP</button>
+                    </div>)
+                    : (<div />)
+                }
                 <h3>Type</h3>
                 {event?.type}
                 <h3>Date</h3>
@@ -38,23 +46,13 @@ const EventIdPage = () => {
                     {group?.name}
                 </Link>
                 <p />
-                { sessionUser
-                    ? (<div>
-                        <EditEventModal />
-                        <DeleteEventModal />
-                        <button onClick={''}>RSVP</button>
-                    </div>)
-                    : (<div>
-                        <LoginFormModal />
-                    </div>)
-                }
-            </div>
-            <div className='event-footer'>
-                {/* <EditEventModal /> */}
-                {/* <DeleteEventModal /> */}
             </div>
         </div>
     )
 }
 
 export default EventIdPage
+
+// (<div>
+//     <LoginFormModal />
+// </div>)
