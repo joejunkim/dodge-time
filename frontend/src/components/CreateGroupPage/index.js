@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import './CreateGroupPage.css'
 import { addGroup, getGroups } from "../../store/groups"
@@ -124,10 +124,11 @@ function CreateGroupPage() {
                     required
                 />
             </div>
-            <button id='create-group__button' type="submit" disabled={!!errors.length}>Create Group</button>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
+            <div>
+                <button id='create-group__button' type="submit" disabled={!!errors.length}>Create Group</button>
+                <Link to='/find' id='create-group__button'>Cancel</Link>
+            </div>
+            {errors.map((error, idx) => <span key={idx}>{error}</span>)}
         </form>
     )
 }

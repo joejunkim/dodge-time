@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
-import DatePicker from "react-datepicker";
+import { useHistory, useLocation, Link } from 'react-router-dom';
 
 import './CreateEventPage.css'
 import { addEvent, getEvents } from "../../store/events"
@@ -179,10 +178,11 @@ function CreateEventPage() {
                     required
                 />
             </div>
-            <button type="submit" disabled={!!errors.length}>Create Event</button>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
+            <div>
+                <button id='create-group__button' type="submit" disabled={!!errors.length}>Create Event</button>
+                <Link to='/find' id='create-group__button'>Cancel</Link>
+            </div>
+            {errors.map((error, idx) => <span key={idx}>{error}</span>)}
         </form>
     )
 }
