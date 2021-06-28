@@ -79,23 +79,31 @@ const GroupIdPage = () => {
             </div>
             <div className='group-details'>
                 <div className='group-info'>
-                    <h3>TYPE</h3>
-                    {group?.type}
-                    <h3>DETAILS</h3>
-                    {group?.city}, {group?.state}
-                    <h3>DESCRIPTION</h3>
-                    {group?.description}
-                    {/* <h3>MEMBERS</h3>
-                    <div>
-                        Members: {members}
+                    <h3>🔵TYPE</h3>
+                    <div className='group-content'>
+                        {group?.type}
                     </div>
-                    <div>
-                        {allUsers[group?.ownerId]?.username}
+                    <h3>🟢DETAILS</h3>
+                    <div className='group-content'>
+                        {group?.city}, {group?.state}
                     </div>
-                    {groupMemberIds.map((id) => (
-                        <div>{allUsers[id]?.username}</div>
-                    ))} */}
-                    <p />
+                    <h3>🟡DESCRIPTION</h3>
+                    <div className='group-content'>
+                        {group?.description}
+                    </div>
+                    <h3>🔴MEMBERS</h3>
+                    {/* <div className='group-content'>
+                        <div>
+                            Members: {members}
+                        </div>
+                        <div>
+                            {allUsers[group?.ownerId]?.username}
+                        </div>
+                        {groupMemberIds.map((id) => (
+                            <div>{allUsers[id]?.username}</div>
+                        ))}
+                        <p />
+                    </div> */}
                     { inGroup || myId === group?.ownerId
                         ? (<div>
                                 <button onClick={leaveClick}>Leave Group</button>

@@ -70,25 +70,33 @@ const EventIdPage = () => {
                 }
             </div>
             <div className='event-info'>
-                <h3>TYPE</h3>
-                {event?.type}
-                <h3>DETAILS</h3>
-                <div>
-                    {venue?.name} | Capacity: {rsvpCount} / {event?.capacity}
+                <h3>🔵TYPE</h3>
+                <div className='event-content'>
+                    {event?.type}
                 </div>
-                <div>
-                    {venue?.address}, {event?.city}, {event?.state}
+                <h3>🟢DETAILS</h3>
+                <div className='event-content'>
+                    <div>
+                        {venue?.name} | Capacity: {rsvpCount} / {event?.capacity}
+                    </div>
+                    <div>
+                        {venue?.address}, {event?.city}, {event?.state}
+                    </div>
+                    <div>
+                        {event?.date} | {event?.time}
+                    </div>
                 </div>
-                <div>
-                    {event?.date} | {event?.time}
+                <h3>🟡DESCRIPTION</h3>
+                <div className='event-content'>
+                    {event?.description}
                 </div>
-                <h3>DESCRIPTION</h3>
-                {event?.description}
-                <h3>HOSTED BY</h3>
-                <Link to={`/groups/${group?.id}`}>
-                    {group?.name}
-                </Link>
-                <p />
+                <h3>🔴HOSTED BY</h3>
+                <div className='event-content'>
+                    <Link to={`/groups/${group?.id}`}>
+                        {group?.name}
+                    </Link>
+                    <p />
+                </div>
                 { inEvent || myId === event?.hostId
                     ? (<div>
                             <button onClick={leaveClick}>Decline RSVP</button>
