@@ -40,8 +40,8 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul >
-            <Link to={`/users/my-account`}>My Account</Link>
-            <Link onClick={logout}>Log Out</Link>
+            <Link className='navbar__link' to={`/users/my-account`}>My Account</Link>
+            <Link className='navbar__link' onClick={logout}>Log Out</Link>
         </ul>
       )}
     </>

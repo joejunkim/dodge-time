@@ -29,7 +29,7 @@ module.exports = {
         type: "Competitive / New Players",
         city: "Los Angeles",
         state: "CA",
-        description: "Deciding to more properly match their name, the professional baseball team has now transitioned to become a professional dodgeball team instead!",
+        description: "Deciding to more properly match their name, the baseball team has now transitioned to become a dodgeball team instead!",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -39,7 +39,7 @@ module.exports = {
         type: "Casual / Experienced Players",
         city: "Seattle",
         state: "WA",
-        description: "Deciding to more properly match their name, the professional baseball team has now transitioned to become a professional dodgeball team instead!",
+        description: "A local Seattle group focused on having casual games with mid to high level players.",
         createdAt: new Date(),
         updatedAt: new Date()
       }

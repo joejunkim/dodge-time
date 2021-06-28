@@ -18,6 +18,10 @@
     justify-content: flex-end;
 }
 
+.navbar__link {
+    margin-left: 5px;
+}
+
 /* .dropdown {
     position: relative;
     display: inline-block;
