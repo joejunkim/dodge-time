@@ -66,47 +66,61 @@ function CreateEventPage() {
     return (
         <form className='create-event__form' onSubmit={handleSubmit}>
             <h1>Create a New Event</h1>
-            <label>Name</label>
-            <input
-                type='text'
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-            />
-            <label>Type</label>
-            <select
-                type='text'
-                onChange={(e) => setType(e.target.value)}
-                value={type}
-                required
-            >
-                <option>--- select one ---</option>
-                <option>Training / Drills</option>
-                <option>Casual Pick-Up</option>
-                <option>Tournament</option>
-            </select>
-            <label>Date</label>
-            <input
-                type='date'
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required
-            />
-            <label>Capacity</label>
-            <input
-                type='integer'
-                value={capacity}
-                onChange={(e) => setCapacity(e.target.value)}
-                required
-            />
-            <label>Description</label>
-            <textarea
-                type='text'
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
-            />
-            <p />
+            <div className='create-event__field'>
+                <label className='create-event__label'>Name</label>
+                <input
+                    className='create-event__input'
+                    type='text'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='create-event__field'>
+                <label className='create-event__label'>Type</label>
+                <select
+                    className='create-event__input'
+                    type='text'
+                    onChange={(e) => setType(e.target.value)}
+                    value={type}
+                    required
+                >
+                    <option>--- select one ---</option>
+                    <option>Training / Drills</option>
+                    <option>Casual Pick-Up</option>
+                    <option>Tournament</option>
+                </select>
+            </div>
+            <div className='create-event__field'>
+                <label className='create-event__label'>Date</label>
+                <input
+                    className='create-event__input'
+                    type='date'
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='create-event__field'>
+                <label className='create-event__label'>Capacity</label>
+                <input
+                    className='create-event__input'
+                    type='integer'
+                    value={capacity}
+                    onChange={(e) => setCapacity(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='create-event__field'>
+                <label className='create-event__label'>Description</label>
+                <textarea
+                    className='create-event__input'
+                    type='text'
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                />
+            </div>
             <button type="submit" disabled={!!errors.length}>Create Event</button>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}

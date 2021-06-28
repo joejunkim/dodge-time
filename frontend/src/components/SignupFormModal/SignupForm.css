@@ -1,0 +1,27 @@
+.signup__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.signup-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px;
+}
+
+.signup-label {
+    width: 100px;
+}
+
+.signup-input {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 120px;
+}
+
+#signup-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

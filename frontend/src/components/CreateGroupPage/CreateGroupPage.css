@@ -4,6 +4,25 @@
     align-items: center;
 }
 
-option {
-    justify-content: center;
+.create-group__field {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px;
+}
+
+.create-group__label {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100px;
+}
+
+.create-group__input {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 200px;
+}
+
+#create-group__button {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

@@ -1,7 +1,27 @@
-/* .login__form {
+.login__form {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
-    background-color: black;
-} */
+}
+
+.login-field {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    align-items: center;
+}
+
+.login-label {
+    width: 200px;
+}
+
+.login-input {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 200px;
+}
+
+#login-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

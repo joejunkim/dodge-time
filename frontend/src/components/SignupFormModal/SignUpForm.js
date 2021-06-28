@@ -31,45 +31,49 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='signup_form' onSubmit={handleSubmit}>
       <h1>Sign Up</h1>
-      <label>
-        Email
+      <div className='signup-field'>
+        <label className='signup-input'>Email</label>
         <input
+          className='signup-field'
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Username
+      </div>
+      <div className='signup-field'>
+        <label className='signup-input'>Username</label>
         <input
+          className='signup-field'
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Confirm Password
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Sign Up</button>
+      </div>
+      <div className='signup-field'>
+        <label className='signup-input'>Password</label>
+          <input
+            className='signup-field'
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+      </div>
+      <div className='signup-field'>
+        <label className='signup-input'>Confirm Password</label>
+          <input
+            className='signup-field'
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+      </div>
+      <button id='signup-button' type="submit">Sign Up</button>
       <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>

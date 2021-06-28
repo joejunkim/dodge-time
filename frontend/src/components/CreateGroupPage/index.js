@@ -57,15 +57,20 @@ function CreateGroupPage() {
     return (
         <form className='create-group__form' onSubmit={handleSubmit}>
             <h1>Create a New Group</h1>
-            <label>Name</label>
-            <input
-                type='text'
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-            />
-            <label>Type</label>
+            <div className='create-group__field'>
+                <label className='create-group__label'>Name</label>
+                <input
+                    className='create-group__input'
+                    type='text'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='create-group__field'>
+            <label className='create-group__label'>Type</label>
             <select
+                className='create-group__input'
                 type='text'
                 onChange={(e) => setType(e.target.value)}
                 value={type}
@@ -77,14 +82,18 @@ function CreateGroupPage() {
                 <option>Competitive / New Players</option>
                 <option>Competitive / Experienced Players</option>
             </select>
-            <label>Description</label>
-            <textarea
-                type='text'
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
-            />
-            <button type="submit" disabled={!!errors.length}>Create Group</button>
+            </div>
+            <div className='create-group__field'>
+                <label className='create-group__label'>Description</label>
+                <textarea
+                    className='create-group__input'
+                    type='text'
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                />
+            </div>
+            <button id='create-group__button' type="submit" disabled={!!errors.length}>Create Group</button>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
