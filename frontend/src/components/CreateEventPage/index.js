@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 
 import './CreateEventPage.css'
 import { addEvent, getEvents } from "../../store/events"
+import { getVenues } from "../../store/venues"
 
 function CreateEventPage() {
     const dispatch = useDispatch();
@@ -15,15 +16,23 @@ function CreateEventPage() {
     const [type, setType] = useState('');
     const [date, setDate] = useState(new Date());
     const [capacity, setCapacity] = useState();
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [time, setTime] = useState('');
+    const [venue, setVenue] = useState('');
     const [description, setDescription] = useState('')
     const [errors, setErrors] = useState([]);
     const history = useHistory();
     const location = useLocation();
 
     const events = useSelector((state) => Object.values(state.events))
+    const venues = useSelector((state) => Object.values(state.venues))
+
+    console.log('------>', venues)
 
     useEffect(() => {
         dispatch(getEvents());
+        dispatch(getVenues());
     }, [dispatch, events])
 
     useEffect(() => {
@@ -42,8 +51,6 @@ function CreateEventPage() {
         setErrors(errors);
     }, [name, type, date, capacity, description])
 
-    const venueId = 1;
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -52,10 +59,13 @@ function CreateEventPage() {
             type,
             date,
             capacity,
+            city,
+            state,
+            time,
             description,
             hostId: myId,
             groupId: location.userProps.groupId,
-            venueId
+            venueId: venue.id
         }
 
         const newEvent = await dispatch(addEvent(payload));
@@ -72,6 +82,7 @@ function CreateEventPage() {
                     className='create-event__input'
                     type='text'
                     value={name}
+                    placeholder='Name of Your Event'
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
@@ -102,12 +113,61 @@ function CreateEventPage() {
                 />
             </div>
             <div className='create-event__field'>
+                <label className='create-event__label'>Time</label>
+                <input
+                    className='create-event__input'
+                    type='text'
+                    value={time}
+                    placeholder='ex. 12:00pm PST'
+                    onChange={(e) => setTime(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='create-event__field'>
+                <label className='create-event__label'>Venue</label>
+                <select
+                    className='create-event__input'
+                    type='text'
+                    value={venue}
+                    onChange={(e) => setVenue(e.target.value)}
+                    required
+                >
+                <option>--- select one ---</option>
+                {venues?.map((venue) => (
+                    <option>{venue?.name}</option>
+                ))}
+                </select>
+            </div>
+            <div className='create-event__field'>
                 <label className='create-event__label'>Capacity</label>
                 <input
                     className='create-event__input'
                     type='integer'
                     value={capacity}
+                    placeholder='ex. 100'
                     onChange={(e) => setCapacity(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='create-event__field'>
+                <label className='create-event__label'>City</label>
+                <input
+                    className='create-event__input'
+                    type='text'
+                    value={city}
+                    placeholder='ex. Seattle'
+                    onChange={(e) => setCity(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='create-event__field'>
+                <label className='create-event__label'>State</label>
+                <input
+                    className='create-event__input'
+                    type='text'
+                    value={state}
+                    placeholder='ex. WA'
+                    onChange={(e) => setState(e.target.value)}
                     required
                 />
             </div>

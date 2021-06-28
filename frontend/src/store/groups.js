@@ -77,7 +77,6 @@ const groupsReducer = (state = initialState, action) => {
         case LOAD_GROUPS:
             const allGroups = {};
             action.groups.forEach((group) => {
-                // console.log('EACH GROUP', group)
                 allGroups[group.id] = group;
             })
             return {

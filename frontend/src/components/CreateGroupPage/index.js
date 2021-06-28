@@ -13,6 +13,8 @@ function CreateGroupPage() {
     const ownerId = sessionUser.id;
     const [name, setName] = useState('');
     const [type, setType] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
     const [description, setDescription] = useState('')
     const [errors, setErrors] = useState([]);
     const history = useHistory();
@@ -46,6 +48,8 @@ function CreateGroupPage() {
             name,
             ownerId,
             type,
+            city,
+            state,
             description
         }
 
@@ -63,6 +67,7 @@ function CreateGroupPage() {
                     className='create-group__input'
                     type='text'
                     value={name}
+                    placeholder='Name of Your Group'
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
@@ -84,11 +89,34 @@ function CreateGroupPage() {
             </select>
             </div>
             <div className='create-group__field'>
+                <label className='create-group__label'>City</label>
+                <input
+                    className='create-group__input'
+                    type='text'
+                    value={city}
+                    placeholder='ex. Seattle'
+                    onChange={(e) => setCity(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='create-group__field'>
+                <label className='create-group__label'>State</label>
+                <input
+                    className='create-group__input'
+                    type='text'
+                    value={state}
+                    placeholder='ex. WA'
+                    onChange={(e) => setState(e.target.value)}
+                    required
+                />
+            </div>
+            <div className='create-group__field'>
                 <label className='create-group__label'>Description</label>
                 <textarea
                     className='create-group__input'
                     type='text'
                     value={description}
+                    placeholder='Describe your group for the world to see!'
                     onChange={(e) => setDescription(e.target.value)}
                     required
                 />

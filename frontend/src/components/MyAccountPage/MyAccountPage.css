@@ -52,17 +52,7 @@
     margin: 15px 15px 5px;
 }
 
-.search-card__type {
+.search-card__info {
     font-size:small;
     margin: 0px 15px 10px;
-}
-
-.search-card__date {
-    font-size:small;
-    margin: 0px 15px 10px;
-}
-
-.search-card__description {
-    font-size:small;
-    margin: 15px 15px 15px;
 }

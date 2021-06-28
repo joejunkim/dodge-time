@@ -9,17 +9,20 @@ import { Link } from 'react-router-dom'
 
 import EditEventModal from "../EditEventFormModal"
 import DeleteEventModal from "../DeleteEventFormModal";
-import LoginFormModal from "../LoginFormModal"
 
 import './EventIdPage.css'
+import { getVenues } from '../../store/venues';
 
 const EventIdPage = () => {
     const dispatch = useDispatch();
     const { eventId } = useParams();
     const event = useSelector((state) => (state.events[eventId]))
     const group = useSelector((state) => (state.groups[event?.groupId]))
+    const venue = useSelector((state) => (state.venues[event?.venueId]))
     const sessionUser = useSelector(state => state.session.user);
     let myId = null;
+
+    console.log('---------->', venue)
 
     if (sessionUser) {
         myId = sessionUser.id
@@ -31,6 +34,7 @@ const EventIdPage = () => {
         dispatch(getEvents());
         dispatch(getGroups());
         dispatch(getRSVPS());
+        dispatch(getVenues());
     }, [dispatch])
 
     const joinClick = async () => {
@@ -60,13 +64,24 @@ const EventIdPage = () => {
                 }
             </div>
             <div className='event-info'>
-                <h3>Type</h3>
+                <h3>TYPE</h3>
                 {event?.type}
-                <h3>Date</h3>
-                {event?.date}
-                <h3>Description</h3>
+                <h3>DETAILS</h3>
+                <div>
+                    {venue?.name} | Capacity: {event?.capacity}
+                </div>
+                <div>
+                    {venue?.address}
+                </div>
+                <div>
+                    {event?.city}, {event?.state}
+                </div>
+                <div>
+                    {event?.date} | {event?.time}
+                </div>
+                <h3>DESCRIPTION</h3>
                 {event?.description}
-                <h3>Hosted By</h3>
+                <h3>HOSTED BY</h3>
                 <Link to={`/groups/${group?.id}`}>
                     {group?.name}
                 </Link>
@@ -85,7 +100,3 @@ const EventIdPage = () => {
 }
 
 export default EventIdPage
-
-// (<div>
-//     <LoginFormModal />
-// </div>)

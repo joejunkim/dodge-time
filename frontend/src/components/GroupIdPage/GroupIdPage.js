@@ -1,18 +1,15 @@
-import * as sessionActions from '../../store/session';
-// import CreateEventPage from "./components/CreateEventPage"
-
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getGroups } from "../../store/groups";
 import { getEvents } from "../../store/events";
+import { getVenues } from "../../store/venues";
 import { joinGroup, leaveGroup, getUserGroups } from '../../store/userGroups'
 import { Link, NavLink, Route } from "react-router-dom";
 
 import Calendar from 'react-calendar'
 import EditGroupModal from "../EditGroupFormModal";
 import DeleteGroupModal from '../DeleteGroupFormModal'
-import LoginFormModal from "../LoginFormModal"
 
 
 import './GroupIdPage.css'
@@ -39,6 +36,7 @@ const GroupIdPage = () => {
         dispatch(getGroups());
         dispatch(getEvents());
         dispatch(getUserGroups());
+        dispatch(getVenues());
     }, [dispatch, inGroup])
 
     const joinClick = async () => {
@@ -69,9 +67,11 @@ const GroupIdPage = () => {
             </div>
             <div className='group-details'>
                 <div className='group-info'>
-                    <h3>Type</h3>
+                    <h3>TYPE</h3>
                     {group?.type}
-                    <h3>Description</h3>
+                    <h3>LOCATION</h3>
+                    {group?.city}, {group?.state}
+                    <h3>DESCRIPTION</h3>
                     {group?.description}
                     <p />
                     { inGroup || myId === group?.ownerId
@@ -110,9 +110,10 @@ const GroupIdPage = () => {
                             <div className='group-events__list'>
                                 {events.map((event) => (
                                     <Link key={event} to={`/events/${event.id}`}>
-                                        <div className='search-card__name'>{event.name}</div>
-                                        <div className='search-card__type'>{event.type}</div>
-                                        <div className='search-card__type'>{event.date}</div>
+                                        <div className='search-card__name'>{event?.name}</div>
+                                        <div className='search-card__info'>{event?.type}</div>
+                                        <div className='search-card__info'>{event?.city}, {event?.state}</div>
+                                        <div className='search-card__info'>{event?.date} | {event?.time}</div>
                                     </Link>
                                 ))}
                             </div>

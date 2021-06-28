@@ -41,10 +41,13 @@ const SearchPage = () => {
                             <div className='search-card'>
                                 <Link to={`/groups/${group.id}`}>
                                     <div className='search-card__name'>
-                                        {group.name}
+                                        {group?.name}
                                         </div>
-                                    <div className='search-card__type'>
-                                        {group.type}
+                                    <div className='search-card__info'>
+                                        {group?.type}
+                                    </div>
+                                    <div className='search-card__info'>
+                                        {group?.city}, {group?.state}
                                     </div>
                                 </Link>
                             </div>
@@ -55,13 +58,13 @@ const SearchPage = () => {
                             <div className='search-card'>
                                 <Link to={`/events/${event.id}`}>
                                     <div className='search-card__name'>
-                                        {event.name}
+                                        {event?.name}
                                     </div>
-                                    <div className='search-card__type'>
-                                        {event.type}
+                                    <div className='search-card__info'>
+                                        {event?.type}
                                     </div>
-                                    <div className='search-card__type'>
-                                        {event.date}
+                                    <div className='search-card__info'>
+                                        {event?.city}, {event?.state} || {event?.date} | {event?.time}
                                     </div>
                                 </Link>
                             </div>
