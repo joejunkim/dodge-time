@@ -20,7 +20,7 @@ function SplashPage() {
         demoLink = (
             <>
                 <p />
-                <NavLink exact onClick={loginDemo} to="/">First Time? Log In As Demo User</NavLink>
+                <NavLink exact onClick={loginDemo} to="/">Want A Test Run? Log In As A Demo User </NavLink>
             </>
         );
     }
@@ -31,8 +31,9 @@ function SplashPage() {
                 <div className='splash-body'>
                     <h1>Welcome to DodgeThis!</h1>
                     <h3>Join groups to meet fellow players, search for local and national events, and most importantly, dodge balls!</h3>
+                    <h3>Remember, if you can dodge a wrench..</h3>
                     <p />
-                    <NavLink to='/find'>Search For A Group or Event</NavLink>
+                    <NavLink to='/find'>Search For Groups And Events</NavLink>
                     {demoLink}
                 </div>
                 <div className='splash-right'>

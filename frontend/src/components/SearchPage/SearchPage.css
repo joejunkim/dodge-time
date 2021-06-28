@@ -1,12 +1,18 @@
 .search-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     margin: 0px 0px 0px 50px
 }
 
 .search-options {
     margin: 0px 0px 0px 50px
+}
+
+.search-image {
+    margin-left: 100px;
+    border-radius: 25px;
+    width: 760px;
+    height: 400px;
+    box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
 }
 
 .search-link {

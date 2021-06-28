@@ -21,6 +21,10 @@
     margin-left: 5px;
 }
 
+#welcome-message {
+    font-size: 14px;
+}
+
 /* .dropdown {
     position: relative;
     display: inline-block;

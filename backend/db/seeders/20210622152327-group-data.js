@@ -36,10 +36,10 @@ module.exports = {
       {
         name: "Rage Cage",
         ownerId: 3,
-        type: "🔵 Casual / Experienced Players",
+        type: "🔵 Casual / New Players",
         city: "Seattle",
         state: "WA",
-        description: "A local Seattle group focused on having casual games with mid to high level players.",
+        description: "A local Seattle group focused on having casual games for new to mid level players. Mainly focused on training and pickup sessions!",
         createdAt: new Date(),
         updatedAt: new Date()
       }
