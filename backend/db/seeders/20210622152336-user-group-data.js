@@ -10,7 +10,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        userId: 1,
+        userId: 2,
         groupId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -24,6 +24,12 @@ module.exports = {
       {
         userId: 3,
         groupId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 1,
+        groupId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
       }

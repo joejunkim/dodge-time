@@ -16,8 +16,17 @@ module.exports = {
         name: "Generic High School",
         address: "1234 Location Lane",
         city: "New York City",
-        state: "New York",
+        state: "NY",
         zipCode: 22222,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: "Place Gym",
+        address: "1234 Venue Location",
+        city: "Los Angeles",
+        state: "CA",
+        zipCode: 33333,
         createdAt: new Date(),
         updatedAt: new Date()
       },

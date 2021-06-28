@@ -26,6 +26,18 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      city: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      state: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      time: {
+        allowNull: false,
+        type: Sequelize.TIME
+      },
       description: {
         allowNull: false,
         type: Sequelize.STRING

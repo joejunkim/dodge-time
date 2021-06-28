@@ -4,6 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     ownerId: DataTypes.INTEGER,
     type: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
     description: DataTypes.STRING
   }, {});
   Group.associate = function(models) {
