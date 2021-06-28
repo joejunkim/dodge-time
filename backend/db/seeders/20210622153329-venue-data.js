@@ -9,8 +9,8 @@ module.exports = {
         city: "Seattle",
         state: "WA",
         zipCode: 11111,
-        createdAt: new Date(Date.UTC(2016, 1, 1)),
-        updatedAt: new Date(Date.UTC(2017, 1, 1)),
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         name: "Generic High School",
@@ -18,8 +18,8 @@ module.exports = {
         city: "New York City",
         state: "New York",
         zipCode: 22222,
-        createdAt: new Date(Date.UTC(2016, 1, 1)),
-        updatedAt: new Date(Date.UTC(2017, 1, 1)),
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
     ], {});
   },

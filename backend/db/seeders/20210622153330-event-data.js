@@ -13,7 +13,7 @@ module.exports = {
         groupId: 1,
         venueId: 1,
         createdAt: new Date(),
-        updatedAt: new Date(),
+        updatedAt: new Date()
       },
       {
         name: "Saturday Training Drills",
@@ -25,7 +25,7 @@ module.exports = {
         groupId: 2,
         venueId: 2,
         createdAt: new Date(),
-        updatedAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },

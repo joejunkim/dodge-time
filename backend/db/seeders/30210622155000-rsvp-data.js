@@ -6,14 +6,14 @@ module.exports = {
       {
         userId: 1,
         eventId: 2,
-        createdAt: new Date(Date.UTC(2016, 1, 1)),
-        updatedAt: new Date(Date.UTC(2017, 1, 1)),
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         userId: 2,
         eventId: 1,
-        createdAt: new Date(Date.UTC(2016, 1, 1)),
-        updatedAt: new Date(Date.UTC(2017, 1, 1)),
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
     ], {});
   },

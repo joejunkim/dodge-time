@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     width: 600px;
+    margin-top: 30px;
     margin-left: 100px;
     margin-right: 100px;
 }
@@ -18,7 +19,9 @@
     justify-content: center;
     flex-direction: column;
     overflow-wrap: normal;
-    margin: 20px;
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
     border-radius: 20px;
     position: relative;
 }
@@ -47,28 +50,4 @@
     height: 119.3px;
     width: 300px;
     margin: 20px;
-}
-
-.search-card {
-    background:rgba(248, 39, 39, 0.767);
-    border: 1px solid #EEE;
-    width: 400px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    overflow-wrap: normal;
-    margin: 0px 0px 20px 0px;
-    border-radius: 20px;
-    position: relative;
-}
-
-.search-card__name {
-    font-size: larger;
-    font-weight: bold;
-    margin: 15px 15px 5px;
-}
-
-.search-card__type {
-    font-size:small;
-    margin: 0px 15px 10px;
 }

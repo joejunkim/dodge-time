@@ -21,20 +21,20 @@ function CreateGroupPage() {
 
     useEffect(() => {
         dispatch(getGroups());
-    }, [dispatch])
+    }, [dispatch, groups])
 
     useEffect(() => {
         const errors = [];
-        if (name.length > 20) {
-            errors.push("Name must be 20 characters or less")
+        if (name.length > 50) {
+            errors.push("Name must be 50 characters or less")
         } else if (groups.map(group => group.name).includes(name)) {
             errors.push("Name already exists")
         }
-        if (type.length > 20) {
-            errors.push("Type must be 20 characters or less")
+        if (type.length > 50) {
+            errors.push("Type must be 50 characters or less")
         }
-        if (description.length > 100) {
-            errors.push("Description must be 100 characters or less")
+        if (description.length > 500) {
+            errors.push("Description must be 500 characters or less")
         }
         setErrors(errors);
     }, [name, type, description])

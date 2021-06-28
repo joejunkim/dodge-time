@@ -6,26 +6,26 @@ module.exports = {
       {
         userId: 1,
         groupId: 1,
-        createdAt: new Date(Date.UTC(2016, 1, 1)),
-        updatedAt: new Date(Date.UTC(2017, 1, 1)),
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         userId: 1,
         groupId: 2,
-        createdAt: new Date(Date.UTC(2016, 1, 1)),
-        updatedAt: new Date(Date.UTC(2017, 1, 1)),
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         userId: 2,
         groupId: 1,
-        createdAt: new Date(Date.UTC(2016, 1, 1)),
-        updatedAt: new Date(Date.UTC(2017, 1, 1)),
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         userId: 3,
         groupId: 2,
-        createdAt: new Date(Date.UTC(2016, 1, 1)),
-        updatedAt: new Date(Date.UTC(2017, 1, 1)),
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },

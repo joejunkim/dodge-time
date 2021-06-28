@@ -1,18 +1,19 @@
 import * as sessionActions from '../../store/session';
+// import CreateEventPage from "./components/CreateEventPage"
+
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getGroups } from "../../store/groups";
 import { getEvents } from "../../store/events";
-import { getUserGroups } from "../../store/userGroups"
-import { Link, NavLink } from "react-router-dom";
+import { joinGroup, leaveGroup, getUserGroups } from '../../store/userGroups'
+import { Link, NavLink, Route } from "react-router-dom";
 
 import Calendar from 'react-calendar'
 import EditGroupModal from "../EditGroupFormModal";
 import DeleteGroupModal from '../DeleteGroupFormModal'
 import LoginFormModal from "../LoginFormModal"
 
-import { joinGroup, leaveGroup } from '../../store/userGroups'
 
 import './GroupIdPage.css'
 
@@ -30,8 +31,6 @@ const GroupIdPage = () => {
 
     const allEvents = useSelector((state) => Object.values(state.events))
     const events = allEvents.filter((event) => event.groupId == groupId)
-
-    // const allUserGroups = useSelector((state) => Object.values(state.userGroups))
 
     const [inGroup, setInGroup] = useState(false)
     const [eventDisplay, setEventDisplay] = useState('list')
@@ -90,7 +89,10 @@ const GroupIdPage = () => {
                         <p />
                     </div>
                     { myId === group?.ownerId
-                        ? (<NavLink to='/events/create'>Create a New Event</NavLink>)
+                        ? (<NavLink to={{
+                            pathname: '/events/create',
+                            userProps: {groupId: groupId}
+                        }}>Create a New Event</NavLink>)
                         : (<div />)
                     }
                 </div>

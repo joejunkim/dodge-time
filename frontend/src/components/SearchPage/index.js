@@ -14,7 +14,6 @@ const SearchPage = () => {
     const groups = useSelector((state) => Object.values(state.groups))
     const events = useSelector((state) => Object.values(state.events))
     const [search, setSearch] = useState('groups')
-    const [className, setClassName] = useState('active')
 
     useEffect(() => {
         dispatch(getGroups());

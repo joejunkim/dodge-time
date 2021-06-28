@@ -9,15 +9,15 @@ module.exports = {
         type: "Casual / New Players",
         description: "Led by Vince Vaughn, this team won in the movie, Dodgeball!",
         createdAt: new Date(),
-        updatedAt: new Date(),
+        updatedAt: new Date()
       },
       {
         name: "Purple Cobras",
         ownerId: 3,
-        type: "Competitive / Experience Players",
+        type: "Competitive / Experienced Players",
         description: "Led by Ben Stiller, this team lost after Ben bled his own blood",
         createdAt: new Date(),
-        updatedAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },

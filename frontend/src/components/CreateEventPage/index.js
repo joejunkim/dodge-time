@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 
 import './CreateEventPage.css'
@@ -10,6 +10,7 @@ import { addEvent, getEvents } from "../../store/events"
 function CreateEventPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const myId = sessionUser.id
     const [name, setName] = useState('');
     const [type, setType] = useState('');
     const [date, setDate] = useState(new Date());
@@ -17,6 +18,7 @@ function CreateEventPage() {
     const [description, setDescription] = useState('')
     const [errors, setErrors] = useState([]);
     const history = useHistory();
+    const location = useLocation();
 
     const events = useSelector((state) => Object.values(state.events))
 
@@ -27,21 +29,19 @@ function CreateEventPage() {
     useEffect(() => {
         const errors = [];
         if (name.length > 20) {
-            errors.push("Name must be 30 characters or less")
+            errors.push("Name must be 50 characters or less")
         } else if (events.map(event => event.name).includes(name)) {
             errors.push("Name already exists")
         }
-        if (type.length > 20) {
-            errors.push("Type must be 20 characters or less")
+        if (type.length > 50) {
+            errors.push("Type must be 50 characters or less")
         }
-        if (description.length > 100) {
-            errors.push("Description must be 100 characters or less")
+        if (description.length > 500) {
+            errors.push("Description must be 500 characters or less")
         }
         setErrors(errors);
     }, [name, type, date, capacity, description])
 
-    const hostId = 1;
-    const groupId = 1;
     const venueId = 1;
 
     const handleSubmit = async (e) => {
@@ -53,8 +53,8 @@ function CreateEventPage() {
             date,
             capacity,
             description,
-            hostId,
-            groupId,
+            hostId: myId,
+            groupId: location.userProps.groupId,
             venueId
         }
 
@@ -81,10 +81,10 @@ function CreateEventPage() {
                 required
             />
             <label>Date</label>
-            <DatePicker
+            <input
+                type='date'
                 value={date}
-                // selected={date}
-                onChange={(date) => setDate(date)}
+                onChange={(e) => setDate(e.target.value)}
                 required
             />
             <label>Capacity</label>
