@@ -19,9 +19,16 @@ const EventIdPage = () => {
     const event = useSelector((state) => (state.events[eventId]))
     const group = useSelector((state) => (state.groups[event?.groupId]))
     const venue = useSelector((state) => (state.venues[event?.venueId]))
-    const rsvps = useSelector((state) => (state.rsvps))
+    const rsvps = useSelector((state) => Object.values(state.rsvps))
     const sessionUser = useSelector(state => state.session.user);
     let myId = null;
+
+    let rsvpCount = 0;
+    rsvps.forEach(rsvp => {
+        if (rsvp.eventId == event.id) {
+            rsvpCount++;
+        }
+    })
 
     if (sessionUser) {
         myId = sessionUser.id
@@ -67,7 +74,7 @@ const EventIdPage = () => {
                 {event?.type}
                 <h3>DETAILS</h3>
                 <div>
-                    {venue?.name} | Capacity: {event?.capacity}
+                    {venue?.name} | Capacity: {rsvpCount} / {event?.capacity}
                 </div>
                 <div>
                     {venue?.address}, {event?.city}, {event?.state}

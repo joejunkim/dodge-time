@@ -5,10 +5,7 @@ const router = express.Router();
 const db = require('../../db/models')
 
 router.get('/', asyncHandler(async (req, res) => {
-    const { myId } = req.params
-    const rsvps = await db.RSVP.findAll({
-        where: { userId: myId }
-    });
+    const rsvps = await db.RSVP.findAll();
     res.json(rsvps);
 }));
 

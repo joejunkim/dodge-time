@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
+import { getUsers } from "../../store/users";
 import { getGroups } from "../../store/groups";
 import { getEvents } from "../../store/events";
 import { getVenues } from "../../store/venues";
@@ -24,15 +25,26 @@ const GroupIdPage = () => {
         myId = sessionUser.id
     }
 
+    const allUsers = useSelector((state) => Object.values(state.users))
     const group = useSelector((state) => (state.groups[groupId]))
-
     const allEvents = useSelector((state) => Object.values(state.events))
     const events = allEvents.filter((event) => event.groupId == groupId)
+    const allMembers = useSelector((state) => Object.values(state.userGroups))
+
+    // let members = 1;
+    // let groupMemberIds = [];
+    // allMembers.forEach(member => {
+    //     if (member.groupId === groupId) {
+    //         members++;
+    //         groupMemberIds.push(member.userId)
+    //     }
+    // })
 
     const [inGroup, setInGroup] = useState(false)
     const [eventDisplay, setEventDisplay] = useState('list')
 
     useEffect(() => {
+        dispatch(getUsers());
         dispatch(getGroups());
         dispatch(getEvents());
         dispatch(getUserGroups());
@@ -69,10 +81,20 @@ const GroupIdPage = () => {
                 <div className='group-info'>
                     <h3>TYPE</h3>
                     {group?.type}
-                    <h3>LOCATION</h3>
+                    <h3>DETAILS</h3>
                     {group?.city}, {group?.state}
                     <h3>DESCRIPTION</h3>
                     {group?.description}
+                    {/* <h3>MEMBERS</h3>
+                    <div>
+                        Members: {members}
+                    </div>
+                    <div>
+                        {allUsers[group?.ownerId]?.username}
+                    </div>
+                    {groupMemberIds.map((id) => (
+                        <div>{allUsers[id]?.username}</div>
+                    ))} */}
                     <p />
                     { inGroup || myId === group?.ownerId
                         ? (<div>

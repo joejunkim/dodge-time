@@ -19,8 +19,8 @@ const leaveOneGroup = (userGroup) => ({
     userGroup
 })
 
-export const getUserGroups = (myId) => async dispatch => {
-    const response = await csrfFetch(`/api/userGroups/${myId}`)
+export const getUserGroups = () => async dispatch => {
+    const response = await csrfFetch(`/api/userGroups/`)
 
     if (response.ok) {
         const userGroups = await response.json()

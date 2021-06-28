@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getGroups } from "../../store/groups";
 import { getEvents } from "../../store/events";
-import { getUserGroups } from "../../store/userGroups"
+import userGroupsReducer, { getUserGroups } from "../../store/userGroups"
 import { getRSVPS } from '../../store/rsvps';
 import { Link, NavLink } from "react-router-dom";
 
@@ -37,18 +37,21 @@ const MyAccountPage = () => {
     useEffect(async () => {
         const tempGroupArray = []
         const tempUserGroup = await dispatch(getUserGroups(myId));
-        Object.values(tempUserGroup).forEach(testGroup => {
-            tempGroupArray.push(testGroup.groupId)
+        Object.values(tempUserGroup).forEach(tempGroup => {
+            if (tempGroup.userId === myId) {
+                tempGroupArray.push(tempGroup.groupId)
+            }
         })
         setGroupArray(tempGroupArray)
     }, [dispatch])
 
     useEffect(async () => {
         const tempEventArray = []
-        const tempRSVP = await dispatch(getRSVPS(myId));
-        {console.log('------------>', tempRSVP)}
+        const tempRSVP = await dispatch(getRSVPS());
         Object.values(tempRSVP).forEach(rsvp => {
-            tempEventArray.push(rsvp.eventId)
+            if (rsvp.userId === myId) {
+                tempEventArray.push(rsvp.eventId)
+            }
         })
         setEventArray(tempEventArray)
     }, [dispatch])
