@@ -57,62 +57,66 @@ const GroupIdPage = () => {
 
     return (
         <div className='group-container'>
-            <div className='group-info'>
+            <div className='group-events__header'>
                 <h1>{group?.name}</h1>
                 { myId === group?.ownerId
                     ? (<div>
                             <EditGroupModal />
                             <DeleteGroupModal />
                     </div>)
-                    : (<div />)
-                }
-                <h3>Type</h3>
-                {group?.type}
-                <h3>Description</h3>
-                {group?.description}
-                <p />
-                { inGroup || myId === group?.ownerId
-                    ? (<div>
-                            <button onClick={leaveClick}>Leave Group</button>
-                    </div>)
-                    : ((<div>
-                            <button onClick={joinClick}>Join Group</button>
-                        </div>))
+                    : (<></>)
                 }
             </div>
-            <div className='group-events'>
-                <div className='group-events__header'>
-                    <h2>Upcoming Events</h2>
-                    <div>
-                        <button onClick={(e) => setEventDisplay('list')}>List View</button>
-                        <button onClick={(e) => setEventDisplay('calendar')}>Calendar View</button>
-                        <p />
-                    </div>
-                    { myId === group?.ownerId
-                        ? (<NavLink to={{
-                            pathname: '/events/create',
-                            userProps: {groupId: groupId}
-                        }}>Create a New Event</NavLink>)
-                        : (<div />)
+            <div className='group-details'>
+                <div className='group-info'>
+                    <h3>Type</h3>
+                    {group?.type}
+                    <h3>Description</h3>
+                    {group?.description}
+                    <p />
+                    { inGroup || myId === group?.ownerId
+                        ? (<div>
+                                <button onClick={leaveClick}>Leave Group</button>
+                        </div>)
+                        : ((<div>
+                                <button onClick={joinClick}>Join Group</button>
+                            </div>))
                     }
                 </div>
-                { eventDisplay === 'calendar'
-                    ? (<>
-                        <div className='group-events__calendar'>
-                            <Calendar/>
+                <div className='group-events'>
+                    <div className='group-events__header'>
+                        <h2>Upcoming Events</h2>
+                        <div>
+                            <button onClick={(e) => setEventDisplay('list')}>List View</button>
+                            <button onClick={(e) => setEventDisplay('calendar')}>Calendar View</button>
+                            <p />
                         </div>
-                </>)
-                : (<>
-                    <div className='group-events__list'>
-                        {events.map((event) => (
-                            <Link key={event} to={`/events/${event.id}`}>
-                                <div className='search-card__name'>{event.name}</div>
-                                <div className='search-card__type'>{event.type}</div>
-                                <div className='search-card__type'>{event.date}</div>
-                            </Link>
-                        ))}
+                        { myId === group?.ownerId
+                            ? (<NavLink to={{
+                                pathname: '/events/create',
+                                userProps: {groupId: groupId}
+                            }}>Create a New Event</NavLink>)
+                            : (<div />)
+                        }
                     </div>
-                </>)}
+                    { eventDisplay === 'calendar'
+                        ? (<>
+                            <div className='group-events__calendar'>
+                                <Calendar/>
+                            </div>
+                    </>)
+                    : (<>
+                        <div className='group-events__list'>
+                            {events.map((event) => (
+                                <Link key={event} to={`/events/${event.id}`}>
+                                    <div className='search-card__name'>{event.name}</div>
+                                    <div className='search-card__type'>{event.type}</div>
+                                    <div className='search-card__type'>{event.date}</div>
+                                </Link>
+                            ))}
+                        </div>
+                    </>)}
+                </div>
             </div>
         </div>
     )

@@ -32,7 +32,7 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATEONLY                    
+        type: Sequelize.DATEONLY
       }
     });
   },

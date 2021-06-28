@@ -49,15 +49,17 @@ const EventIdPage = () => {
 
     return (
         <div className='event-container'>
-            <div className='event-info'>
+            <div className='event-header'>
                 <h1>{event?.name}</h1>
                 { sessionUser?.id === event?.hostId
                     ? (<div>
                         <EditEventModal />
                         <DeleteEventModal />
                     </div>)
-                    : (<div />)
+                    : (<></>)
                 }
+            </div>
+            <div className='event-info'>
                 <h3>Type</h3>
                 {event?.type}
                 <h3>Date</h3>

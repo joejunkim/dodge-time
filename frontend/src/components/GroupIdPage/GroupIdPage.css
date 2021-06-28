@@ -1,5 +1,11 @@
 .group-container {
     display: flex;
+    flex-direction: column;
+}
+
+.group-details {
+    display: flex;
+    flex-direction: row;
 }
 
 .group-info {
@@ -7,7 +13,7 @@
     flex-direction: column;
     width: 600px;
     margin-top: 30px;
-    margin-left: 100px;
+    margin-left: 120px;
     margin-right: 100px;
 }
 
@@ -20,7 +26,7 @@
     flex-direction: column;
     overflow-wrap: normal;
     margin-top: 30px;
-    margin-left: 100px;
+    margin-left: 80px;
     margin-right: 100px;
     border-radius: 20px;
     position: relative;
@@ -45,9 +51,11 @@
 .group-events__list {
     display: flex;
     flex-direction: column;
-    justify-content: column;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 119.3px;
     width: 300px;
     margin: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }

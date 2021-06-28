@@ -5,8 +5,10 @@
     margin: 0px 0px 0px 50px
 }
 
-.search__options {
+.search-options {
     margin: 0px 0px 0px 50px
 }
 
-
+.search-link {
+    margin-left: 10px;
+}

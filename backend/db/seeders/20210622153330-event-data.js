@@ -17,7 +17,7 @@ module.exports = {
       },
       {
         name: "Saturday Training Drills",
-        type: "Training",
+        type: "Training / Drills",
         date: new Date(),
         capacity: 15,
         description: "Come practice throwing drills",

@@ -10,6 +10,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration:underline;
+}
+
 button {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
@@ -21,6 +25,8 @@ button {
 
 button:hover {
     cursor: pointer;
+    transform: scale(1.03, 1.03);
+    text-decoration: underline;
 }
 
 form {
@@ -41,6 +47,10 @@ form {
     margin: 0px 0px 20px 0px;
     border-radius: 20px;
     position: relative;
+}
+
+.search-card:hover {
+    transform: scale(1.03, 1.03)
 }
 
 .search-card__name {
