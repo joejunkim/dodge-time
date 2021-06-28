@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     capacity: DataTypes.INTEGER,
     city: DataTypes.STRING,
     state: DataTypes.STRING,
-    time: DataTypes.TIME,
+    time: DataTypes.STRING,
     description: DataTypes.STRING,
     hostId: DataTypes.INTEGER,
     groupId: DataTypes.INTEGER,

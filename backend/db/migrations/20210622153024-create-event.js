@@ -36,7 +36,7 @@ module.exports = {
       },
       time: {
         allowNull: false,
-        type: Sequelize.TIME
+        type: Sequelize.STRING
       },
       description: {
         allowNull: false,
