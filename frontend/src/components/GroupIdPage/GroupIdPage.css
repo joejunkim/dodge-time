@@ -22,8 +22,8 @@
     border: 1px solid #EEE;
     width: 400px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     overflow-wrap: normal;
     margin-top: 30px;
     margin-left: 80px;
@@ -39,13 +39,21 @@
     align-items: center;
 }
 
+.group-events__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .group-events__calendar {
     display: flex;
     flex-direction: column;
-    justify-content: column;
+    justify-content: center;
     align-items: center;
     width: 300px;
-    margin: 20px;
+    margin: 15px;
+    margin-top: 0px;
 }
 
 .group-events__list {
@@ -55,7 +63,8 @@
     align-items: flex-start;
     height: 119.3px;
     width: 300px;
-    margin: 20px;
+    margin: 15px;
+    margin-top: 0px;
     overflow-x: hidden;
     overflow-y: scroll;
 }

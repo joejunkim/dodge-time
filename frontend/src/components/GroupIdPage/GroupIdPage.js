@@ -86,11 +86,6 @@ const GroupIdPage = () => {
                 <div className='group-events'>
                     <div className='group-events__header'>
                         <h2>Upcoming Events</h2>
-                        <div>
-                            <button onClick={(e) => setEventDisplay('list')}>List View</button>
-                            <button onClick={(e) => setEventDisplay('calendar')}>Calendar View</button>
-                            <p />
-                        </div>
                         { myId === group?.ownerId
                             ? (<NavLink to={{
                                 pathname: '/events/create',
@@ -98,24 +93,31 @@ const GroupIdPage = () => {
                             }}>Create a New Event</NavLink>)
                             : (<div />)
                         }
-                    </div>
-                    { eventDisplay === 'calendar'
-                        ? (<>
-                            <div className='group-events__calendar'>
-                                <Calendar/>
-                            </div>
-                    </>)
-                    : (<>
-                        <div className='group-events__list'>
-                            {events.map((event) => (
-                                <Link key={event} to={`/events/${event.id}`}>
-                                    <div className='search-card__name'>{event.name}</div>
-                                    <div className='search-card__type'>{event.type}</div>
-                                    <div className='search-card__type'>{event.date}</div>
-                                </Link>
-                            ))}
+                        <div>
+                            <button onClick={(e) => setEventDisplay('list')}>List View</button>
+                            <button onClick={(e) => setEventDisplay('calendar')}>Calendar View</button>
+                            <p />
                         </div>
-                    </>)}
+                    </div>
+                    <div className='group-events__content'>
+                        { eventDisplay === 'calendar'
+                            ? (<>
+                                <div className='group-events__calendar'>
+                                    <Calendar/>
+                                </div>
+                        </>)
+                        : (<>
+                            <div className='group-events__list'>
+                                {events.map((event) => (
+                                    <Link key={event} to={`/events/${event.id}`}>
+                                        <div className='search-card__name'>{event.name}</div>
+                                        <div className='search-card__type'>{event.type}</div>
+                                        <div className='search-card__type'>{event.date}</div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </>)}
+                    </div>
                 </div>
             </div>
         </div>
