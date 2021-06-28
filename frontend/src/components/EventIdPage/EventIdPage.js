@@ -23,7 +23,7 @@ const EventIdPage = () => {
     const sessionUser = useSelector(state => state.session.user);
     let myId = null;
 
-    let rsvpCount = 0;
+    let rsvpCount = 1;
     rsvps.forEach(rsvp => {
         if (rsvp.eventId == event.id) {
             rsvpCount++;
