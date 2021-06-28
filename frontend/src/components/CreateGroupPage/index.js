@@ -30,8 +30,8 @@ function CreateGroupPage() {
         } else if (groups.map(group => group.name).includes(name)) {
             errors.push("Name already exists")
         }
-        if (type.length > 50) {
-            errors.push("Type must be 50 characters or less")
+        if (type === '--- select one ---') {
+            errors.push("Please choose a valid group type")
         }
         if (description.length > 500) {
             errors.push("Description must be 500 characters or less")
@@ -57,33 +57,33 @@ function CreateGroupPage() {
     return (
         <form className='create-group__form' onSubmit={handleSubmit}>
             <h1>Create a New Group</h1>
-            <label>
-                Name
-                <input
-                    type='text'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Type
-                <input
-                    type='text'
-                    value={type}
-                    onChange={(e) => setType(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Description
-                <textarea
-                    type='text'
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                />
-            </label>
+            <label>Name</label>
+            <input
+                type='text'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+            />
+            <label>Type</label>
+            <select
+                type='text'
+                onChange={(e) => setType(e.target.value)}
+                value={type}
+                required
+            >
+                <option>--- select one ---</option>
+                <option>Casual / New Players</option>
+                <option>Casual / Experienced Players</option>
+                <option>Competitive / New Players</option>
+                <option>Competitive / Experienced Players</option>
+            </select>
+            <label>Description</label>
+            <textarea
+                type='text'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+            />
             <button type="submit" disabled={!!errors.length}>Create Group</button>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}

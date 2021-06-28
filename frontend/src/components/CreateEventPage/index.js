@@ -33,8 +33,8 @@ function CreateEventPage() {
         } else if (events.map(event => event.name).includes(name)) {
             errors.push("Name already exists")
         }
-        if (type.length > 50) {
-            errors.push("Type must be 50 characters or less")
+        if (type === '--- select one ---') {
+            errors.push("Please choose a valid group type")
         }
         if (description.length > 500) {
             errors.push("Description must be 500 characters or less")
@@ -74,12 +74,17 @@ function CreateEventPage() {
                 required
             />
             <label>Type</label>
-            <input
+            <select
                 type='text'
-                value={type}
                 onChange={(e) => setType(e.target.value)}
+                value={type}
                 required
-            />
+            >
+                <option>--- select one ---</option>
+                <option>Training / Drills</option>
+                <option>Casual Pick-Up</option>
+                <option>Tournament</option>
+            </select>
             <label>Date</label>
             <input
                 type='date'
